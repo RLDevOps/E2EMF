@@ -1,0 +1,277 @@
+<section id="widget-grid" class="">
+	<div class="row">
+		<article class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+			<div class="jarviswidget" id="wid-id-20"
+				data-widget-editbutton="false" data-widget-deletebutton="false">
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o">
+					</i></span>
+					<h2>System Map 2</h2>
+                     
+				</header>
+
+				<!-- widget div-->
+				<div >
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body">
+
+						<div class="">
+							<!--sankey Diagram begins Here-->
+                         
+							<div id="loading"></div>
+                             <div id="results" class="col-md-6"></div>
+								<div id='sankey' class="flowdiagram">&nbsp;</div>
+                            	
+                            	
+
+                           
+						</div>
+					</div>
+                    <br style="clear: both;">
+
+					<!-- end widget content -->
+
+				</div>
+				<!-- end widget div -->
+
+			</div>
+
+
+		</article>
+	</div>
+</section>
+
+<script src="js/sankey.js"></script>
+<script src="js/spin.js"></script>
+<script src="js/tipsy.js"></script>
+<script>
+$(document).ready(function(){
+	
+
+var margin = {top: 1, right: 0, bottom: 6, left: 80},
+        	width = 980 - margin.left - margin.right,
+        	        height = 400 - margin.top - margin.bottom;
+
+        	var formatNumber = d3.format(".0f"),
+        	        format = function(d) {
+        	            return formatNumber(d);
+        	        },
+        	        color = d3.scale.category20();
+
+
+	
+    var callBackSuccessgetSystemMapSankey = function(energy){
+    	if (energy.nodes.length == 0)
+    		  $("#results").html('<div class="alert alert-danger fade in"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="alert-heading"><i class="fa fa-exclamation-triangle"></i>&nbsp;OOPS!</h4><p class="text-align-left">The Filtered Data Has No Results Found, Try Again.</p></div>');
+
+    					$("#sankey").html("");
+
+    								
+    		        	var svg = d3.select("#sankey").append("svg")
+    			        .attr("width", width + margin.left + margin.right)
+    			        .attr("height", height + margin.top + margin.bottom)
+    			        .append("g")
+    			        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    			var sankey = d3.sankey()
+    			        .nodeWidth(35)
+    			        .nodePadding(10)
+    			        .size([width, height]).fullwidth(width).totalstacks(2);
+
+    			var path = sankey.link();
+
+//     			 var nodeMap = {};
+//     			 var nodeKey;
+//             	 energy.nodes.forEach(function(x) { nodeKey = x.name + "#" + x.stack; nodeMap[nodeKey] = x; });
+//             	 energy.links = energy.links.map(function(x) {
+//             		 return {
+//             	        source: nodeMap[x.source],
+//             	        target: nodeMap[x.target],
+//             	        value: x.value,
+//             	        color: x.color,
+//             	        text: x.text,
+//             	        sourcename: x.sourcename,
+//             	        targetname: x.targetname
+//             	      };
+//             	    });
+	
+    		            	
+    		                sankey
+    		                        .nodes(energy.nodes)
+    		                        .links(energy.links)
+    		                        .layout(32)
+    		                        ;
+
+    		                var link = svg.append("g").selectAll(".link")
+    		                        .data(energy.links)
+    		                        .enter().append("path")
+    		                        .attr("class", "link")
+    		                        .attr("d", path)
+    		                        .on("click", function(d) {
+//    		                             alert(d.source.name + " → " + d.target.name + "\n" + format(d.value));
+    		                        })
+    		                        .style("stroke-width", function(d) {
+
+    		                            return Math.max(1, d.dy);
+    		                        })
+    		                        .style("stroke", function(d) {
+
+    		                            return d.color;
+    		                        });
+
+    		                link.append("title")
+    		                        .text(function(d) {
+    		                        	return d.source.name + ' -> ' + d.target.name + ' : ' + format(d.value);
+    		                        });
+
+    		                var node = svg.append("g").selectAll(".node")
+    		                        .data(energy.nodes)
+    		                        .enter().append("g")
+    		                        .attr("class", "node")
+    		                        .attr("transform", function(d) {
+    		                            return "translate(" + d.x + "," + d.y + ")";
+    		                        })
+    		                        .on("click", function(d) {
+//    		                             alert(d.name + "\n" + format(d.value));
+    		                        })
+    		                        .call(d3.behavior.drag()
+    		                                .origin(function(d) {
+    		                                    return d;
+    		                                })
+    		                                .on("dragstart", function() {
+    		                                    this.parentNode.appendChild(this);
+    		                                })
+    		                                .on("drag", dragmove));
+
+    		                node.append("rect")
+    		                        .attr("height", function(d) {
+    		                            return d.dy;
+    		                        })
+    		                        .attr("width", sankey.nodeWidth())
+    		                        .style("fill", function(d) {
+    		                            return d.color;
+    		                        })
+    		                        .style("stroke", function(d) {
+    		                            return d3.rgb(d.color).darker(2);
+    		                        })
+    		                        .append("title")
+    		                        .text(function(d) {
+    		                            return d.name + ' - ' + format(d.value);
+    		                        });
+
+    		                node.append("text")
+    		                        .attr("x", -6)
+    		                        .attr("y", function(d) {
+    		                            return d.dy / 2;
+    		                        })
+    		                        .attr("dy", ".35em")
+    		                        .attr("text-anchor", "end")
+    		                        .attr("transform", null)
+    		                        .text(function(d) {
+    		                            return d.name;
+    		                        })
+    		                        .filter(function(d) {
+    		                            return d.x < width / 2;
+    		                        })
+    		                        .attr("x", 6 + sankey.nodeWidth())
+    		                        .attr("text-anchor", "start");
+
+    		                     $('rect').tipsy({ 
+    		                     gravity: 'w', 
+    		                     html: true, 
+    		                     title: function() {
+    		                     var nodename = $(this).text();
+    		                     return nodename; 
+    		        }
+    		      });
+
+    		                     $('path').tipsy({ 
+    		                     gravity: 'z', 
+    		                     html: true, 
+    		                     title: function() {
+    		                     var pathflow = $(this).text();
+    		                     return pathflow; 
+    		        }
+    		      });
+    		                $('#loading').hide();
+
+    		                function dragmove(d) {
+    		                    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
+    		                    sankey.relayout();
+    		                    link.attr("d", path);
+    		                  }
+        }
+
+    var callBackfailuregetSystemMapSankey = function(response){
+		alert("ok1");
+	}
+	
+callAjaxService("getSystemMapSankey",callBackSuccessgetSystemMapSankey, callBackfailuregetSystemMapSankey);
+    
+//// Loading spinner Code Start /////////
+var opts = {
+		  lines: 15, // The number of lines to draw
+		  length: 8, // The length of each line
+		  width: 5, // The line thickness
+		  radius: 12, // The radius of the inner circle
+		  corners: 0.7, // Corner roundness (0..1)
+		  rotate: 0, // The rotation offset
+		  direction: 1, // 1: clockwise, -1: counterclockwise
+		  color: '#000', // #rgb or #rrggbb or array of colors
+		  speed: 1, // Rounds per second
+		  trail: 60, // Afterglow percentage
+		  shadow: false, // Whether to render a shadow
+		  hwaccel: false, // Whether to use hardware acceleration
+		  className: 'spinner', // The CSS class to assign to the spinner
+		  zIndex: 2e9, // The z-index (defaults to 2000000000)
+		  top: '0', // Top position relative to parent in px
+		  left: '380' // Left position relative to parent in px
+		};
+var target = document.getElementById('loading');
+var spinner = new Spinner(opts).spin(target);
+////Loading spinner Code End /////////
+
+
+});
+
+// DO NOT REMOVE : GLOBAL FUNCTIONS!
+	pageSetUp();
+	
+    	loadDataTableScripts();
+	function loadDataTableScripts() {
+
+		loadScript("js/plugin/datatables/jquery.dataTables-cust.min.js", dt_2);
+
+		function dt_2() {
+			loadScript("js/plugin/datatables/ColReorder.min.js", dt_3);
+		}
+
+		function dt_3() {
+			loadScript("js/plugin/datatables/FixedColumns.min.js", dt_4);
+		}
+
+		function dt_4() {
+			loadScript("js/plugin/datatables/ColVis.min.js", dt_5);
+		}
+
+		function dt_5() {
+			loadScript("js/plugin/datatables/ZeroClipboard.js", dt_6);
+		}
+
+		function dt_6() {
+			loadScript("js/plugin/datatables/media/js/TableTools.min.js", dt_7);
+		}
+
+		function dt_7() {
+			loadScript("js/plugin/datatables/DT_bootstrap.js");
+		}
+
+	}
+  </script>

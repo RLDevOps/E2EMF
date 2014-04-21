@@ -1,0 +1,648 @@
+<section id="widget-grid" class="">
+	<div class="row">
+		<article class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+			<div class="jarviswidget" id="wid-id-13"
+				data-widget-editbutton="false" data-widget-deletebutton="false">
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o">
+					</i></span>
+					<h2>End To End Material Flow</h2>
+                     <span id="filter" class="pull-right" data-toggle="modal" data-target="#myModal" ><i class="fa fa-filter">| Filter</i></span>
+				</header>
+
+				<!-- widget div-->
+				<div >
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body">
+
+						<div class="">
+							<!--sankey Diagram begins Here
+                            <div class="form-bootstrapWizard">
+														<ul class="bootstrapWizard form-wizard">
+															<li class="" data-target="#step1">
+													<a href="#tab1" data-toggle="tab"> <span class="paper paper-curve-right">External/Internal Vendors</span> <span class="title"></span> </a>
+															</li>
+															<li data-target="#step2" class="">
+																<a href="#tab2" data-toggle="tab"> <span class="paper paper-curve-right">Manufacturing Plants</span> <span class="title"></span> </a>
+															</li>
+															<li data-target="#step3" class="">
+																<a href="#tab3" data-toggle="tab"> <span class="paper paper-curve-right">Distribution Plants</span> <span class="title"></span> </a>
+															</li>
+															<li data-target="#step4" class="">
+																<a href="#tab4" data-toggle="tab"> <span class="paper paper-curve-right">Customers/Distributors</span> <span class="title"></span> </a>
+															</li>
+														</ul>
+														<div class="clearfix"></div>
+													</div>-->
+        
+
+<div class="col-md-12" id="svgheadings"  >
+<svg width="1021" height="115">
+ 
+ <g>
+  <title></title>
+  <rect id="svg_1" height="42" width="200" y="70" x="20" stroke-width="2" stroke="#aba9a9" fill="#eee" />
+  <rect id="svg_5" height="42" width="200" y="69" x="300" stroke-width="2" stroke="#aba9a9" fill="#eee"/>
+  <rect id="svg_7" height="42" width="200" y="69" x="571" stroke-width="2" stroke="#aba9a9" fill="#eee"/>
+  <rect id="svg_8" height="42" width="200" y="67" x="820" stroke-width="2" stroke="#aba9a9" fill="#eee"/>
+  <line id="svg_9" y2="90" x2="221" y1="90" x1="300" stroke-linecap="null" stroke-linejoin="null" stroke="#000" fill="none"/>
+  <line id="svg_10" y2="90" x2="500" y1="90" x1="571" stroke-linecap="null" stroke-linejoin="null" stroke="#000" fill="none"/>
+  <line id="svg_11" y2="90" x2="820" y1="90" x1="771" stroke-linecap="null" stroke-linejoin="null" stroke="#000" fill="none"/>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="95" x="146" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#000000">Internal/External Vendors</text>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="95" x="545" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#000000">Manufacturing Plants</text>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="95" x="922" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#000000">Distribution Plants</text>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="95" x="1282" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#000000">Customers/Distributors</text>
+ </g>
+ </g>
+</svg>
+    </div>
+							<div id="loading"></div>
+                             <div id="results" class="col-md-6"></div>
+								<div id='sankey' class="flowdiagram">&nbsp;</div>
+                            	
+                            	
+<div class="col-md-12 legends"> <div class="legend-type">NODES : </div>
+	<div id="nodesLegend">
+		<span><i class="fa fa-square" id="Vendors"></i>Internal Vendors</span>
+		<span><i class="fa fa-square" id="External"></i>External Vendors</span> |
+		<span><i class="fa fa-square" id="Manufacturing"></i>Manufacturing Plant</span> 
+		<span><i class="fa fa-square" id="Delivering"></i>Delivering Plant </span> |
+		<span><i class="fa fa-square" id="Distributor"></i>Distributor/Customer</span> 
+		
+	</div>
+
+</div>
+
+<div class="col-md-12 legends"><div class="legend-type">LINKS :</div>
+<div id="linksLegend"></div>
+</div>
+                           
+						</div>
+					</div>
+                    <br style="clear: both;">
+                    <div class="alert alert-info fade in">
+<button data-dismiss="alert" class="close">×</button><i class="fa-fw fa fa-info"></i>
+<strong>Info!</strong> &nbsp;Analytics based on Canada SAP data for past 2 years (2012-2013).
+					</div>
+					<!-- end widget content -->
+
+				</div>
+				<!-- end widget div -->
+
+			</div>
+
+
+		</article>
+	</div>
+</section>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+&times;</button>
+<h4 class="modal-title" id="myModalLabel">Filter Settings</h4>
+</div>
+<form id="frmSankeyFilter" class="smart-form">
+<div class="modal-body">
+<fieldset>
+<div class="row">
+<section class="col col-6"><i class="icon-append fa fa-barcode"></i>                      
+<input type="text"  name="meterialid" id="meterialid" style="width: 445px"/>
+</section>	
+<section class="col col-6"><i class="icon-append fa fa-filter"></i>                      
+<select multiple  name="type" id="type" style="width: 445px">
+<option value="OTHERS">Normal Purchasing</option>
+<option value="DROP SHIP">Dropship</option>
+<option value="SUB CONTRACTING">Subcontracting</option>
+<option value="EXTERNAL PROCESSING">External Processing</option>
+<option value="INTERCOMPANY DROPSHIP">Intercompany Dropship</option>
+<option value="DIRECT SALES">Direct Sales</option>
+<option value="CONSIGNMENT">Consignment</option>
+<option value="STO">Stock Transfer</option>
+</select>
+</section>	
+</div>			
+    <hr>
+    <br>
+<div class="row">
+<section class="col col-3">
+<div id="supplier-selection"></div><i class="icon-append fa fa-user"></i>
+<input type="text" name="supplier" id="supplier" style="width: 190px">
+</section>
+
+<section class="col col-3"><i class="icon-append fa fa-sitemap"></i>    
+<input type="text" name="tier1" id="tier1" style="width: 190px"> 
+</section>
+								
+<section class="col col-3"><i class="icon-append fa fa-sitemap"></i>
+<input type="text" name="tier2" id="tier2" style="width: 190px"> 
+</section>
+
+<section class="col col-3"><i class="icon-append fa fa-user"></i>
+<input type="text" name="customer" id="customer"style="width: 190px">
+</section>
+</div>
+</fieldset>
+</div>
+<div class="modal-footer">
+ <footer>
+<button type="submit" class="btn btn-primary">Filter</button>
+</footer>
+</div>
+</form>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+
+<script src="js/sankey.js"></script>
+<script src="js/select2.js"></script>
+<script src="js/spin.js"></script>
+<script src="js/tipsy.js"></script>
+<script>
+$(document).ready(function(){
+	var masterURL = 'http://jjsandbox.relevancelab.com:8080/E2EMF/rest/MasterData/searchMasterDatanew';
+	 function formatResult(resp) {
+		 return resp.id + ' - ' + resp.name;
+	    }
+
+	    function formatSelection(resp) {
+	        return resp.id + ' - ' + resp.name;
+	    }
+	$("#supplier").select2({
+	    placeholder: "Enter Vendor Name..",
+	    minimumInputLength: 3,
+	    multiple: true,
+	    ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+	        url: masterURL,
+	        dataType: 'json',
+	        type: 'GET',
+	        data: function (term) {
+	        	return {
+	        	q: term,
+	        	type: 'V'
+	        	};
+	        },
+	        results: function (data) { // parse the results into the format expected by Select2.
+	            // since we are using custom formatting functions we do not need to alter remote JSON data
+// 	            console.log(data);
+	            return {results: data};
+	        }
+	    },
+	    formatResult: formatResult, // omitted for brevity, see the source of this page
+	    formatSelection: formatSelection,  // omitted for brevity, see the source of this page
+	    dropdownCssClass: "bigdrop", // apply css that makes the dropdown taller
+	    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+	});
+
+	$("#meterialid").select2({
+	    placeholder: "Enter Material Name",
+	    minimumInputLength: 3,
+	    multiple: true,
+	    ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+	        url: masterURL,
+	        dataType: 'json',
+	        type: 'GET',
+	        data: function (term) {
+	        	return {
+	        	q: term,
+	        	type: 'M'
+	        	};
+	        },
+	        results: function (data) { // parse the results into the format expected by Select2.
+	            // since we are using custom formatting functions we do not need to alter remote JSON data
+// 	            console.log(data);
+	            return {results: data};
+	        }
+	    },
+	    formatResult: formatResult, // omitted for brevity, see the source of this page
+	    formatSelection: formatSelection,  // omitted for brevity, see the source of this page
+	    dropdownCssClass: "bigdrop", // apply css that makes the dropdown taller
+	    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+	});
+
+	$("#customer").select2({
+	    placeholder: "Enter Cust/Distributor Name",
+	    minimumInputLength: 3,
+	    multiple: true,
+	    ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+	        url: masterURL,
+	        dataType: 'json',
+	        type: 'GET',
+	        data: function (term) {
+	        	return {
+	        	q: term,
+	        	type: 'C'
+	        	};
+	        },
+	        results: function (data) { // parse the results into the format expected by Select2.
+	            // since we are using custom formatting functions we do not need to alter remote JSON data
+// 	            console.log(data);
+	            return {results: data};
+	        }
+	    },
+	    formatResult: formatResult, // omitted for brevity, see the source of this page
+	    formatSelection: formatSelection,  // omitted for brevity, see the source of this page
+	    dropdownCssClass: "bigdrop", // apply css that makes the dropdown taller
+	    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+	});
+
+	$("#tier1").select2({
+	    placeholder: "Enter Manufacturing Plant",
+	    minimumInputLength: 3,
+	    multiple: true,
+	    ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+	        url: masterURL,
+	        dataType: 'json',
+	        type: 'GET',
+	        data: function (term) {
+	        	return {
+	        	q: term,
+	        	type: 'P'
+	        	};
+	        },
+	        results: function (data) { // parse the results into the format expected by Select2.
+	            // since we are using custom formatting functions we do not need to alter remote JSON data
+// 	            console.log(data);
+	            return {results: data};
+	        }
+	    },
+	    formatResult: formatResult, // omitted for brevity, see the source of this page
+	    formatSelection: formatSelection,  // omitted for brevity, see the source of this page
+	    dropdownCssClass: "bigdrop", // apply css that makes the dropdown taller
+	    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+	});
+
+	$("#tier2").select2({
+	    placeholder: "Enter Distributing Plant ",
+	    minimumInputLength: 3,
+	    multiple: true,
+	    ajax: { // instead of writing the function to execute the request we use Select2's convenient helper
+	        url: masterURL,
+	        dataType: 'json',
+	        type: 'GET',
+	        data: function (term) {
+	        	return {
+	        	q: term,
+	        	type: 'P'
+	        	};
+	        },
+	        results: function (data) { // parse the results into the format expected by Select2.
+	            // since we are using custom formatting functions we do not need to alter remote JSON data
+// 	            console.log(data);
+	            return {results: data};
+	        }
+	    },
+	    formatResult: formatResult, // omitted for brevity, see the source of this page
+	    formatSelection: formatSelection,  // omitted for brevity, see the source of this page
+	    dropdownCssClass: "bigdrop", // apply css that makes the dropdown taller
+	    escapeMarkup: function (m) { return m; } // we do not want to escape markup since we are displaying html in results
+	});
+
+	$("#type").select2({
+	    placeholder: "Enter PO/SO Type"
+	});
+
+// 		 	$.getJSON("/E2EMF/rest/MasterData/searchMasterData/C",function(result) {
+// 		// 		console.log(result);
+// 		 	    var options = $("#customer");
+// 		 	    //don't forget error handling!
+// 		 	    $.each(result, function(key, singleItem) {
+// 		 		   options.append($("<option />").val(singleItem.id).text(singleItem.Name));
+// 		 	    });
+// 		 	    $("#customer").select2({placeholder: "Customer/Distributor"});
+// 		 	});
+
+// 		 	$.getJSON("/E2EMF/rest/MasterData/searchMasterData/M",function(result) {
+// 		// 		console.log(result);
+// 		 	    var options = $("#meterialid");
+// 		 	    //don't forget error handling!
+// 		 	    $.each(result, function(key, singleItem) {
+// 		 		   options.append($("<option />").val(singleItem.id).text(singleItem.Name));
+// 		 	    });
+// 		 	    $("#meterialid").select2({placeholder: "Type Material ID"});
+// 		 	});
+			
+
+//		 	$.getJSON("/Admin/GetFolderList/", function(result) {
+//		 	    var options = $("#tier1");
+//		 	    //don't forget error handling!
+//		 	    $.each(result, function(item) {
+//		 	        options.append($("<option />").val(item.ImageFolderID).text(item.Name));
+//		 	    });
+//		 	});
+
+//		 	$.getJSON("/Admin/GetFolderList/", function(result) {
+//		 	    var options = $("#tier2");
+//		 	    //don't forget error handling!
+//		 	    $.each(result, function(item) {
+//		 	        options.append($("<option />").val(item.ImageFolderID).text(item.Name));
+//		 	    });
+//		 	});
+
+var margin = {top: 1, right: 0, bottom: 6, left: 80},
+        	width = 980 - margin.left - margin.right,
+        	        height = 400 - margin.top - margin.bottom;
+
+        	var formatNumber = d3.format(",.0f"),
+        	        format = function(d) {
+        	            return "$" + formatNumber(d);
+        	        },
+        	        color = d3.scale.category20();
+
+
+
+$('#frmSankeyFilter').submit(function(){
+	$("#myModal").modal('hide'); 
+	var supplierVal = $("#supplier").select2("val");
+// 	console.log(supplierVal);
+	var tier1Val = $("#tier1").select2("val");
+	var tier2Val = $("#tier2").select2("val");
+	var customerVal = $("#customer").select2("val");
+	var meterialidVal = $("#meterialid").select2("val");
+	var typeVal = $("#type").select2("val");
+
+	if(supplierVal != null){
+		supplierVal = supplierVal.join(",");
+		}
+	if(tier1Val != null){
+		tier1Val = tier1Val.join(",");
+		}
+	if(tier2Val != null){
+		tier2Val = tier2Val.join(",");
+		}
+	if(customerVal != null){
+		customerVal = customerVal.join(",");
+		}
+	if(meterialidVal != null){
+		meterialidVal = meterialidVal.join(",");
+		}
+	if(typeVal != null){
+		typeVal = typeVal.join(",");
+		}
+
+
+	
+// alert("hI");
+	
+
+	// AJAX call returs the data for the sankey Diagram        
+    $.ajax({
+
+//         url: "js/energy.json",
+
+        url: "http://jjsandbox.relevancelab.com:8080/E2EMF/rest/searchLndData/getE2EMF",
+
+        type: 'POST',
+
+        data: {supplier: supplierVal, tier1: tier1Val, tier2: tier2Val, customer: customerVal, meterialid: meterialidVal, type: typeVal},
+
+
+        dataType: 'json',
+
+         beforeSend: function () {
+            $('#loading').show();
+            
+        },
+        complete: function () {
+            $('#loading').hide();
+        },
+        success: function (energy) {
+             if (energy.nodes.length == 0)
+  $("#results").html('<div class="alert alert-danger fade in"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="alert-heading"><i class="fa fa-exclamation-triangle"></i>&nbsp;OOPS!</h4><p class="text-align-left">The Filtered Data Has No Results Found, Try Again.</p></div>');
+
+			$("#sankey").html("");
+
+			//// Links Legend code ////////
+			var linksLegend = energy.count; // Count object from reponse
+			var linksLegendArr = []; // array to form legend html
+			var linksLegendHtml = '';
+
+			// each function to fetch all links legends
+			$.each( linksLegend, function( key, value ) {
+				
+				linksLegendArr.push("<span><i class='fa fa-square link-legend' style='color:"+value.color+"'></i>"+key+" ("+value.count+")</span>");
+				
+			});
+			linksLegendHtml = linksLegendArr.join(""); // form html from array 
+			$("#linksLegend").html(linksLegendHtml); // assign html to respected element
+			$(".legends").show();
+			//// Links Legend code End ////////
+			
+        /*	var svg = d3.select("#sankey").append("svg")
+	        .attr("width", width + margin.left + margin.right)
+	        .attr("height", height + margin.top + margin.bottom)
+	        .append("g")
+	        .attr("transform", "translate(" + margin.left + "," + margin.top + ")"); */
+
+            var svg = d3.select("#sankey").append("svg")
+	       .attr("width", width + margin.left + margin.right)
+	        .attr("height", height + margin.top + margin.bottom)
+          //  .attr("viewBox","0 0 50 50")
+	        .append("g")
+	        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	var sankey = d3.sankey()
+	        .nodeWidth(35)
+	        .nodePadding(10)
+	        .size([width, height]).fullwidth(width).totalstacks(4);
+
+	var path = sankey.link();
+
+
+            	 var nodeMap = {};
+            	 energy.nodes.forEach(function(x) { nodeMap[x.name] = x; });
+            	 energy.links = energy.links.map(function(x) {
+            	      return {
+            	        source: nodeMap[x.source],
+            	        target: nodeMap[x.target],
+            	        value: x.value,
+            	        color: x.color,
+            	        text: x.text,
+            	        sourcename: x.sourcename,
+            	        targetname: x.targetname
+            	      };
+            	    });
+
+                sankey
+                        .nodes(energy.nodes)
+                        .links(energy.links)
+                        .layout(32)
+                        ;
+
+                var link = svg.append("g").selectAll(".link")
+                        .data(energy.links)
+                        .enter().append("path")
+                        .attr("class", "link")
+                        .attr("d", path)
+                        .on("click", function(d) {
+//                             alert(d.source.name + " → " + d.target.name + "\n" + format(d.value));
+                        })
+                        .style("stroke-width", function(d) {
+
+                            return Math.max(1, d.dy);
+                        })
+                        .style("stroke", function(d) {
+
+                            return d.color;
+                        });
+
+                link.append("title")
+                        .text(function(d) {
+                        	return d.source.name + ' - ' + d.sourcename + ' to ' + d.target.name + ' - ' + d.targetname + ' - ' + d.text + ' - ' + format(d.value);
+                        });
+
+                var node = svg.append("g").selectAll(".node")
+                        .data(energy.nodes)
+                        .enter().append("g")
+                        .attr("class", "node")
+                        .attr("transform", function(d) {
+                            return "translate(" + d.x + "," + d.y + ")";
+                        })
+                        .on("click", function(d) {
+//                             alert(d.name + "\n" + format(d.value));
+                        })
+                        .call(d3.behavior.drag()
+                                .origin(function(d) {
+                                    return d;
+                                })
+                                .on("dragstart", function() {
+                                    this.parentNode.appendChild(this);
+                                })
+                                .on("drag", dragmove));
+
+                node.append("rect")
+                        .attr("height", function(d) {
+                            return d.dy;
+                        })
+                        .attr("width", sankey.nodeWidth())
+                        .style("fill", function(d) {
+                            return d.color;
+                        })
+                        .style("stroke", function(d) {
+                            return d3.rgb(d.color).darker(2);
+                        })
+                        .append("title")
+                        .text(function(d) {
+                            return d.name + ' - ' + d.text + ' - ' + format(d.value);
+                        });
+
+                node.append("text")
+                        .attr("x", -6)
+                        .attr("y", function(d) {
+                            return d.dy / 2;
+                        })
+                        .attr("dy", ".35em")
+                        .attr("text-anchor", "end")
+                        .attr("transform", null)
+                        .text(function(d) {
+                            return d.name;
+                        })
+                        .filter(function(d) {
+                            return d.x < width / 2;
+                        })
+                        .attr("x", 6 + sankey.nodeWidth())
+                        .attr("text-anchor", "start");
+
+                     $('rect').tipsy({ 
+                     gravity: 'w', 
+                     html: true, 
+                     title: function() {
+                     var nodename = $(this).text();
+                     return nodename; 
+        }
+      });
+
+                     $('path').tipsy({ 
+                     gravity: 'z', 
+                     html: true, 
+                     title: function() {
+                     var pathflow = $(this).text();
+                     return pathflow; 
+        }
+      });
+                $('#loading').hide();
+
+                function dragmove(d) {
+                    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
+                    sankey.relayout();
+                    link.attr("d", path);
+                  }
+           
+        },
+        error: function (errorcode, errormsg) {
+            console.log('errorcode:: ' + errorcode.statusText + ' errormsg:: ' + errormsg);
+        }
+    });
+	return false;
+});
+$('#frmSankeyFilter').submit();
+
+//// Loading spinner Code Start /////////
+var opts = {
+		  lines: 15, // The number of lines to draw
+		  length: 8, // The length of each line
+		  width: 5, // The line thickness
+		  radius: 12, // The radius of the inner circle
+		  corners: 0.7, // Corner roundness (0..1)
+		  rotate: 0, // The rotation offset
+		  direction: 1, // 1: clockwise, -1: counterclockwise
+		  color: '#000', // #rgb or #rrggbb or array of colors
+		  speed: 1, // Rounds per second
+		  trail: 60, // Afterglow percentage
+		  shadow: false, // Whether to render a shadow
+		  hwaccel: false, // Whether to use hardware acceleration
+		  className: 'spinner', // The CSS class to assign to the spinner
+		  zIndex: 2e9, // The z-index (defaults to 2000000000)
+		  top: '0', // Top position relative to parent in px
+		  left: '380' // Left position relative to parent in px
+		};
+var target = document.getElementById('loading');
+var spinner = new Spinner(opts).spin(target);
+////Loading spinner Code End /////////
+
+
+});
+
+// DO NOT REMOVE : GLOBAL FUNCTIONS!
+	pageSetUp();
+	
+    	loadDataTableScripts();
+	function loadDataTableScripts() {
+
+		loadScript("js/plugin/datatables/jquery.dataTables-cust.min.js", dt_2);
+
+		function dt_2() {
+			loadScript("js/plugin/datatables/ColReorder.min.js", dt_3);
+		}
+
+		function dt_3() {
+			loadScript("js/plugin/datatables/FixedColumns.min.js", dt_4);
+		}
+
+		function dt_4() {
+			loadScript("js/plugin/datatables/ColVis.min.js", dt_5);
+		}
+
+		function dt_5() {
+			loadScript("js/plugin/datatables/ZeroClipboard.js", dt_6);
+		}
+
+		function dt_6() {
+			loadScript("js/plugin/datatables/media/js/TableTools.min.js", dt_7);
+		}
+
+		function dt_7() {
+			loadScript("js/plugin/datatables/DT_bootstrap.js");
+		}
+
+	}
+  </script>

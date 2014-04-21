@@ -1,0 +1,170 @@
+<section id="widget-grid" class="">
+	<div class="row">
+		<article class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+			<div class="jarviswidget" id="wid-id-13"
+				data-widget-editbutton="false" data-widget-deletebutton="false">
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o">
+					</i></span>
+					<h2>System Map</h2>
+                     
+				</header>
+
+				<!-- widget div-->
+				<div >
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body">
+
+						<div class="">
+							<!--System Map Diagram begins Here-->
+                               
+				
+							<div id="loading"></div>
+                             
+								<div id='sysmtem-map' style="width:720px; margin: 0 auto;">&nbsp;</div>
+  
+                           
+						</div>
+					</div>
+                    <br style="clear: both;">
+
+					<!-- end widget content -->
+
+				</div>
+				<!-- end widget div -->
+
+			</div>
+
+
+		</article>
+	</div>
+</section>
+<script src="js/spin.js"></script>
+<script>
+$('#loading').show();
+var width = 720,
+height = 720,
+outerRadius = Math.min(width, height) / 2 - 10,
+innerRadius = outerRadius - 24;
+
+var formatPercent = d3.format(",.0f");
+
+var arc = d3.svg.arc()
+.innerRadius(innerRadius)
+.outerRadius(outerRadius);
+
+var layout = d3.layout.chord()
+.padding(.04)
+.sortSubgroups(d3.descending)
+.sortChords(d3.ascending);
+
+var path = d3.svg.chord()
+.radius(innerRadius);
+
+var svg = d3.select("#sysmtem-map").append("svg")
+.attr("width", width)
+.attr("height", height)
+.append("g")
+.attr("id", "circle")
+.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+svg.append("circle")
+.attr("r", outerRadius);
+
+d3.csv("system_map.csv", function(cities) {
+d3.json("matrix.json", function(matrix) {
+
+	 $('#loading').hide();
+
+// Compute the chord layout.
+layout.matrix(matrix);
+
+// Add a group per neighborhood.
+var group = svg.selectAll(".group")
+    .data(layout.groups)
+  .enter().append("g")
+    .attr("class", "group")
+    .on("mouseover", mouseover);
+
+// Add a mouseover title.
+group.append("title").text(function(d, i) {
+	return cities[i].name + ": " + formatPercent(d.value) + "";
+});
+
+// Add the group arc.
+var groupPath = group.append("path")
+    .attr("id", function(d, i) { return "group" + i; })
+    .attr("d", arc)
+    .style("fill", function(d, i) { return cities[i].color; });
+
+// Add a text label.
+var groupText = group.append("text")
+    .attr("x", 6)
+    .attr("dy", 15);
+
+groupText.append("textPath")
+    .attr("xlink:href", function(d, i) { return "#group" + i; })
+    .text(function(d, i) { return cities[i].name; });
+
+// Remove the labels that don't fit. :(
+groupText.filter(function(d, i) { return groupPath[0][i].getTotalLength() / 2 - 16 < this.getComputedTextLength(); })
+    .remove();
+
+// Add the chords.
+var chord = svg.selectAll(".chord")
+    .data(layout.chords)
+  .enter().append("path")
+    .attr("class", "chord")
+    .style("fill", function(d) { return cities[d.source.index].color; })
+    .attr("d", path);
+
+// Add an elaborate mouseover title for each chord.
+chord.append("title").text(function(d) {
+  return cities[d.source.index].name
+      + " → " + cities[d.target.index].name
+      + ": " + formatPercent(d.source.value)
+      + "\n" + cities[d.target.index].name
+      + " → " + cities[d.source.index].name
+      + ": " + formatPercent(d.target.value);
+});
+
+function mouseover(d, i) {
+  chord.classed("path-fade", function(p) {
+    return p.source.index != i
+        && p.target.index != i;
+  });
+}
+});
+});
+
+////Loading spinner Code Start /////////
+var opts = {
+		  lines: 15, // The number of lines to draw
+		  length: 8, // The length of each line
+		  width: 5, // The line thickness
+		  radius: 12, // The radius of the inner circle
+		  corners: 0.7, // Corner roundness (0..1)
+		  rotate: 0, // The rotation offset
+		  direction: 1, // 1: clockwise, -1: counterclockwise
+		  color: '#000', // #rgb or #rrggbb or array of colors
+		  speed: 1, // Rounds per second
+		  trail: 60, // Afterglow percentage
+		  shadow: false, // Whether to render a shadow
+		  hwaccel: false, // Whether to use hardware acceleration
+		  className: 'spinner', // The CSS class to assign to the spinner
+		  zIndex: 2e9, // The z-index (defaults to 2000000000)
+		  top: '0', // Top position relative to parent in px
+		  left: '380' // Left position relative to parent in px
+		};
+var target = document.getElementById('loading');
+var spinner = new Spinner(opts).spin(target);
+////Loading spinner Code End /////////
+
+</script>

@@ -1,0 +1,31 @@
+{"nodes":[
+{"name":"Ext V 1","color":"#FFE4C4","stack":1},
+{"name":"Ext V 2","color":"#FFE4C4","stack":1},
+{"name":"Aff V 1","color":"#0000FF","stack":1},
+{"name":"Aff V 2","color":"#0000FF","stack":1},
+{"name":"Manuf Plant 1 (w. Company Code)","color":"#8A2BE2","stack":2},
+{"name":"Manuf  Plant 2 (w. company code)","color":"#8A2BE2","stack":2},
+{"name":"Company Code","color":"#8A2BE2","stack":2},
+{"name":"DC Plant 1 (w. CC)","color":"#8A2BE2","stack":3},
+{"name":"DC Plant 2 (w. CC)","color":"#8A2BE2","stack":3},
+{"name":"DC Plant 3 (w. CC)","color":"#8A2BE2","stack":3},
+{"name":"Distributor 1","color":"#DEB887","stack":4},
+{"name":"Distributor 2","color":"#DEB887","stack":4},
+{"name":"Customer 1","color":"#FF7F50","stack":4},
+{"name":"Customer 2","color":"#FF7F50","stack":4},
+{"name":"Customer 3","color":"#FF7F50","stack":4}
+],
+"links":[
+{"source":"Ext V 1","target":"Manuf Plant 1 (w. Company Code)","value":124,"color":"#FFE4C4"},
+{"source":"Ext V 2","target":"Customer 2","value":30,"color":"#0000FF"},
+{"source":"Aff V 1","target":"Manuf Plant 1 (w. Company Code)","value":26,"color":"#8A2BE2"},
+{"source":"Aff V 1","target":"Manuf  Plant 2 (w. company code)","value":180,"color":"#A52A2A"},
+{"source":"Aff V 2","target":"Manuf  Plant 2 (w. company code)","value":81,"color":"#DEB887"},
+{"source":"Aff V 2","target":"Customer 3","value":35,"color":"#5F9EA0"},
+{"source":"Manuf Plant 1 (w. Company Code)","target":"DC Plant 2 (w. CC)","value":35,"color":"#7FFF00"},
+{"source":"Manuf Plant 1 (w. Company Code)","target":"DC Plant 3 (w. CC)","value":11,"color":"#D2691E"},
+{"source":"Manuf  Plant 2 (w. company code)","target":"Customer 1","value":63,"color":"#FF7F50"},
+{"source":"DC Plant 1 (w. CC)","target":"Distributor 1","value":75,"color":"#6495ED"},
+{"source":"DC Plant 2 (w. CC)","target":"Distributor 2","value":10,"color":"#DC143C"},
+{"source":"DC Plant 3 (w. CC)","target":"Customer 2","value":22,"color":"#00008B"}
+]}

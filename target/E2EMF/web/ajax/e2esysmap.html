@@ -1,0 +1,559 @@
+<style>
+#timeline-chart g.y{display: none;}
+</style>
+<script src="js/spin.js"></script>
+<!-- widget grid -->
+<section id="widget-grid" class="">
+<!-- row -->
+<div class="row">
+<!-- NEW WIDGET START -->
+<article class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+<div class="row">
+<div class="col-md-3">
+<!-- Widget ID (each widget will need unique ID)-->
+<div class="jarviswidget jarviswidget-color-light " id="wid-id-3" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-sortable="false">
+
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i></span>
+					<h2 >Senders</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						<div id="sender-row-chart">
+		
+<a class="reset" href="javascript:shorzBarChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+   <div class="clearfix"></div>
+				 </div>
+						
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+</div>
+<div class="col-md-6">
+<!-- Widget ID (each widget will need unique ID)-->
+<div class="jarviswidget jarviswidget-color-light " id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false"  >
+
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i></span>
+					<h2>System Map Dimensions</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox" >
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+
+			    <!--    <a class="reset" href="javascript:pieChartVendor.filterAll();dc.redrawAll();"
+			           style="display: none;">reset</a>		-->
+			           <div id="pie-chart-direct" class="col-md-4" align="center" >
+				        <span>Direct Type</span>
+				        <a class="reset" href="javascript:pieChartDirect.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+				
+				        <div class="clearfix"></div>
+		    		</div>	
+			          
+			 
+			    
+				    <div id="pie-chart-status" class="col-md-4"  align="center">
+				        <span>Status</span>
+				         <a class="reset" href="javascript:pieChartStatus.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+				
+				        <div class="clearfix"></div>
+		    		</div>	
+			        
+			          <div id="pie-chart-Message" class="col-md-4"  align="center">
+				        <span>Message Type</span>
+				        <a class="reset" href="javascript:pieChartMessage.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+				
+				        <div class="clearfix"></div>
+		    		</div>	
+			        <div class="clearfix"></div>
+
+                        						<div class="row">
+							<div id="timeline-area-chart">
+					        
+					        <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+					        <a class="reset" href="javascript:timelineAreaChart.filterAll();timelineChart.filterAll();dc.redrawAll();"
+					           style="display: none;">reset</a>
+					
+					        <div class="clearfix"></div>
+					    	</div>
+				    	</div>
+				    	<div class="row">
+							<div id="timeline-chart"></div>
+				    	</div>
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+
+</div>
+<div class="col-md-3">
+<!-- Widget ID (each widget will need unique ID)-->
+<div class="jarviswidget jarviswidget-color-light " id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-sortable="false">
+
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i></span>
+					<h2 >Receivers</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						<div id="receiver-row-chart">
+		
+<a class="reset" href="javascript:rhorzBarChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+   <div class="clearfix"></div>
+				 </div>
+						
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+</div>
+</div>
+ <div id="loading" style="left: 40%; position: absolute; top: 200px;"></div>  
+		
+
+          	
+		
+   
+         
+            
+</article>
+</div> 
+</section>
+<!-- end widget grid -->
+
+<script type="text/javascript">
+	
+	// DO NOT REMOVE : GLOBAL FUNCTIONS!
+	pageSetUp();
+	
+	// PAGE RELATED SCRIPTS
+
+	// switch style change
+	$('input[name="checkbox-style"]').change(function() {
+		//alert($(this).val())
+		$this = $(this);
+
+		if ($this.attr('value') === "switch-1") {
+			$("#switch-1").show();
+			$("#switch-2").hide();
+		} else if ($this.attr('value') === "switch-2") {
+			$("#switch-1").hide();
+			$("#switch-2").show();
+		}
+
+	}); 
+	
+	// tab - pills toggle
+	$('#show-tabs').click(function() {
+		$this = $(this);
+		if($this.prop('checked')){
+			$("#widget-tab-1").removeClass("nav-pills").addClass("nav-tabs");
+		} else {
+			$("#widget-tab-1").removeClass("nav-tabs").addClass("nav-pills");
+		}
+		
+	});	
+</script>
+
+    <script type="text/javascript" src="js/crossfilter.js"></script>
+    <script type="text/javascript" src="js/dc.js"></script>
+    <script type="text/javascript" src="js/colorbrewer.js"></script>
+
+<script type="text/javascript">
+    $('#loading').show();
+    //# dc.js Getting Started and How-To Guide
+    'use strict';
+
+    var pieChartDirect = dc.pieChart("#pie-chart-direct"); //inbound/outbound
+    var pieChartStatus = dc.pieChart("#pie-chart-status"); //status
+    var pieChartMessage = dc.pieChart("#pie-chart-Message"); //message
+    var rhorzBarChart = dc.rowChart("#receiver-row-chart"); //receiver
+    var shorzBarChart = dc.rowChart("#sender-row-chart"); //sender
+    var timelineAreaChart = dc.lineChart("#timeline-area-chart");
+    var timelineChart = dc.barChart("#timeline-chart");
+
+    //  d3.csv("http://jjsandbox.relevancelab.com:8080/E2EMF/rest/profiling/dropship", function (data) {
+    d3.csv("systemmap_profiling.csv", function (data) {
+        $('#loading').hide();
+        //console.debug(data);
+        //alert(3);
+        /* since its a csv file we need to format the data a bit */
+        var dateFormat = d3.time.format("%d-%m-%Y");
+        //    var dateFormat = d3.time.format("%Y/%m/%d");
+
+        var numberFormat = d3.format(".2f");
+
+        var numberFormat2 = d3.format(",.2f");
+
+        var numberFormat3 = d3.format("");
+
+        /*var xd = "2008.08.01";
+        var xf = dateFormat.parse(xd);
+        alert(xd);
+        alert(d3.time.month(xf).getMonth());*/
+        var flag = 1;
+
+        data.forEach(function (d) {
+            console.debug(d);
+
+            console.debug(dateFormat.parse(d.createdon));
+            d.dd = dateFormat.parse(d.createdon);
+
+            d.month = d3.time.month(d.dd); // pre-calculate month for better performance
+            //  d.po_count = +d.po_count;
+            //  d.orderquantity = +d.orderquantity;
+            //   d.grossordervalue = +d.grossordervalue;
+            //   d.netprice = +d.netprice;
+
+            /*test code to see nth record
+            if (flag == 100)
+            {
+            alert(d.month);
+            alert(d.dd);
+            alert(d3.time.year(d.dd));
+
+            }
+            flag++;*/
+        });
+
+        //### Create Crossfilter Dimensions and Groups
+        //See the [crossfilter API](https://github.com/square/crossfilter/wiki/API-Reference) for reference.
+        var ndx = crossfilter(data);
+
+        var all = ndx.groupAll();
+
+
+
+
+        // dimension by full date
+        //    var dataTableDimension = ndx.dimension(function (d) {
+        //       return d.dd;
+        //   });
+        //
+
+
+        // dimension by month
+        var timelineDimension = ndx.dimension(function (d) {
+            //console.debug(d.month);
+            return d.month;
+        });
+        // group by total volume within move, and scale down result
+        var timelineGroup = timelineDimension.group().reduceSum(function (d) {
+            return d.DOCCOUNT
+
+        });
+        // group by total movement within month
+        var timelineSecondGroup = timelineDimension.group().reduceSum(function (d) {
+            return d.DOCCOUNT;
+        });
+        var timelineAreaGroup = timelineDimension.group().reduce(
+                  function (p, v) {
+                      ++p.count;
+                      p.total += v.netprice; //(v.open + v.close) / 2;
+                      p.avg = Math.round(p.total / p.count);
+
+                      if ('M' + v.materialid in p.materialMap) {
+                          p.materialMap['M' + v.materialid]++;
+                      }
+                      else {
+                          p.materialMap['M' + v.materialid] = 1;
+                      }
+                      p.avg = p.materialMap.length;
+
+                      if ('V' + v.vendor in p.vendorMap) {
+                          p.vendorMap['V' + v.vendor]++;
+                      }
+                      else {
+                          p.vendorMap['V' + v.vendor] = 1;
+                      }
+                      p.total = p.vendorMap.length;
+
+                      return p;
+                  },
+                  function (p, v) {
+                      --p.count;
+                      p.total -= v.netprice; //(v.open + v.close) / 2;
+                      p.avg = p.count ? Math.round(p.total / p.count) : 0;
+
+                      if ('M' + v.materialid in p.materialMap) {
+                          if (p.materialMap['M' + v.materialid] == 1)
+                              delete p.materialMap['M' + v.materialid];
+                          else
+                              p.materialMap['M' + v.materialid]--;
+                      }
+                      p.avg = p.materialMap.length;
+
+                      if ('V' + v.vendor in p.vendorMap) {
+                          if (p.vendorMap['V' + v.vendor] == 1)
+                              delete p.materialMap['V' + v.vendor];
+                          else
+                              p.vendorMap['V' + v.vendor]--;
+                      }
+                      p.total = p.vendorMap.length;
+
+                      return p;
+                  },
+                  function () {
+                      return { count: 0, total: 0, avg: 0, materialMap: [], vendorMap: [] };
+                  }
+              );
+
+
+
+
+        // summerize volume by quarter
+
+        //Direct
+        var pieChartDirectGroupDimention = ndx.dimension(function (d) {
+            if (d.direction == 1)
+                return "Outbound";
+            else {
+                return "Inbound";
+            }
+
+            return d.direction;
+        });
+
+        //Status
+        var pieChartStatusDimention = ndx.dimension(function (d) {
+            return d.idocstatus;
+        });
+
+        //Message type
+        var pieChartMessageDimention = ndx.dimension(function (d) {
+            return d.messagetype;
+        });
+
+
+        //Direct group
+        var pieDirectGroup = pieChartDirectGroupDimention.group().reduceSum(function (d) {
+            return d.DOCCOUNT;
+        });
+
+
+        //status group
+        var pieStatusGroup = pieChartStatusDimention.group().reduceSum(function (d) {
+            return d.DOCCOUNT;
+        });
+
+        //message type group
+        var pieMessageGroup = pieChartMessageDimention.group().reduceSum(function (d) {
+            return d.DOCCOUNT;
+        });
+
+        // counts per weekday
+        var rhorzBarDimension = ndx.dimension(function (d) {
+            return d.RECEIVER;
+        });
+
+        var shorzBarDimension = ndx.dimension(function (d) {
+            return d.SENDER;
+        });
+
+        var rhorzBarGrp = rhorzBarDimension.group();
+        var shorzBarGrp = shorzBarDimension.group();
+
+
+
+        var colorScale = d3.scale.ordinal().range(['#000']);
+
+        pieChartDirect.width(160)//Inboud/Outbound
+              .height(210)
+              .radius(70)
+              .innerRadius(30)
+              .dimension(pieChartDirectGroupDimention)
+              .group(pieDirectGroup);
+    
+        //         .label(function (d) {
+        //              if (pieChartDirect.hasFilter() && !pieChartDirect.hasFilter(d.key))
+        //                   return d.key + "(0%)";
+        //               return d.key + "(" + Math.floor(d.value / all.value() * 100) + "%)";
+        //            });
+
+        pieChartStatus.width(160)//status
+              .height(210)
+              .radius(70)
+              .dimension(pieChartStatusDimention)
+              .group(pieStatusGroup);
+
+
+        pieChartMessage.width(160)//Message type
+              .height(210)
+              .radius(70)
+             .innerRadius(30)
+              .dimension(pieChartMessageDimention)
+              .group(pieMessageGroup);
+
+
+        //#### sRow Chart
+        rhorzBarChart.width(240)
+                  .height(460)
+                  .margins({ top: 20, left: 2, right: 10, bottom: 20 })
+                  .group(rhorzBarGrp)
+                  .dimension(rhorzBarDimension)
+        // assign colors to each value in the x scale domain
+                  .ordinalColors(['#3182bd', '#6baed6', '#9e5ae1', '#c64bef', '#da8aab'])
+                  .label(function (d) {
+
+                       return d.key; //.split(".")[1];
+                  })
+
+        //#### rRow Chart
+        shorzBarChart.width(200)
+                  .height(460)
+                  .margins({ top: 20, left: 10, right: 10, bottom: 20 })
+                  .group(shorzBarGrp)
+                  .dimension(shorzBarDimension)
+        // assign colors to each value in the x scale domain
+                  .ordinalColors(['#3182bd', '#6baed6', '#9e5ae1', '#c64bef', '#da8aab'])
+                  .label(function (d) {
+
+                        return d.key; //.split(".")[1];
+                  })
+
+        // title sets the row text
+                  .title(function (d) {
+                      return d.key + ': ' + d.value; //d.value;
+                  })
+                  .elasticX(true)
+                  .xAxis().ticks(4);
+
+
+
+        timelineAreaChart
+              .renderArea(true)
+              .width(500)
+              .height(130)
+              .transitionDuration(1000)
+              .margins({ top: 30, right: 0, bottom: 25, left: 80})
+              .dimension(timelineDimension)
+              .mouseZoomable(true)
+        // Specify a range chart to link the brush extent of the range with the zoom focue of the current chart.
+              .rangeChart(timelineChart)
+              .x(d3.time.scale().domain([new Date(2011, 0, 1), new Date(2015, 11, 31)]))
+              .round(d3.time.month.round)
+              .xUnits(d3.time.months)
+              .elasticY(true)
+              .renderHorizontalGridLines(true)
+        //  .legend(dc.legend().x(800).y(10).itemHeight(13).gap(5))
+              .brushOn(false)
+        // Add the base layer of the stack with group. The second parameter specifies a series name for use in the legend
+        // The `.valueAccessor` will be used for the base layer
+              .group(timelineAreaGroup)
+              .valueAccessor(function (d) {
+                  return d.value.total;
+              })
+        // stack additional layers with `.stack`. The first paramenter is a new group.
+        // The second parameter is the series name. The third is a value accessor.
+              .stack(timelineSecondGroup,  function (d) {
+                  return d.value;
+              })
+        // title can be called by any stack layer.
+              .title(function (d) {
+                  var value = d.value.avg ? d.value.avg : d.value;
+                  if (isNaN(value)) value = 0;
+                  return dateFormat(d.key) + "\n" + numberFormat(value);
+              });
+
+        timelineChart.width(500)
+              .height(80)
+              .margins({ top: 40, right: 0, bottom: 20, left: 80 })
+              .dimension(timelineDimension)
+              .group(timelineGroup)
+              .centerBar(true)
+              .gap(1)
+              .x(d3.time.scale().domain([new Date(2012, 0, 1), new Date(2014, 11, 31)]))
+               .round(d3.time.month.round)
+              .alwaysUseRounding(true)
+              .xUnits(d3.time.months);
+
+
+        dc.renderAll();
+        /*
+        // or you can render charts belong to a specific chart group
+        dc.renderAll("group");
+        // once rendered you can call redrawAll to update charts incrementally when data
+        // change without re-rendering everything
+        dc.redrawAll();
+        // or you can choose to redraw only those charts associated with a specific chart group
+        dc.redrawAll("group");
+        */
+
+    });
+
+    //#### Version
+    //Determine the current version of dc with `dc.version`
+    d3.selectAll("#version").text(dc.version);
+
+    var opts = {
+        lines: 15, // The number of lines to draw
+        length: 8, // The length of each line
+        width: 5, // The line thickness
+        radius: 12, // The radius of the inner circle
+        corners: 0.7, // Corner roundness (0..1)
+        rotate: 0, // The rotation offset 
+        direction: 1, // 1: clockwise, -1: counterclockwise
+        color: '#000', // #rgb or #rrggbb or array of colors
+        speed: 1, // Rounds per second
+        trail: 60, // Afterglow percentage
+        shadow: false, // Whether to render a shadow
+        hwaccel: false, // Whether to use hardware acceleration
+        className: 'spinner', // The CSS class to assign to the spinner
+        zIndex: 2e9, // The z-index (defaults to 2000000000)
+        top: '10', // Top position relative to parent in px
+        left: 'auto' // Left position relative to parent in px
+    };
+    var target = document.getElementById('loading');
+    var spinner = new Spinner(opts).spin(target);
+
+</script>

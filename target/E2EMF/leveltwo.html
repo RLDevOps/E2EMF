@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>BtB | List View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">	
+	<link href="css/font-awesome.min.css" rel="stylesheet">	
+	<link href="css/custom.css" rel="stylesheet">
+    <link href="css/custom.min.css" rel="stylesheet">
+</head>
+
+  <body>
+	<!-- Overlay Div -->
+	<div id="overlay" style="display: none;">
+		<div class="overlay-inner">
+			<div id="followingBallsG">
+				<div id="followingBallsG_1" class="followingBallsG">
+				</div>
+				<div id="followingBallsG_2" class="followingBallsG">
+				</div>
+				<div id="followingBallsG_3" class="followingBallsG">
+				</div>
+				<div id="followingBallsG_4" class="followingBallsG">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="wrapper">
+		<div id="top-nav" class="fixed skin-1">
+			<button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<ul class="nav-notification clearfix">
+				<li class="profile dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<strong>Vishal Prasad</strong>
+						<span><i class="fa fa-chevron-down"></i></span>
+					</a>
+					<ul class="dropdown-menu">
+						
+						<li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> Users</a></li>
+						
+						<li><a tabindex="-1" href="#" class="theme-setting"><i class="fa fa-cog fa-lg"></i> Setting</a></li>
+						<li class="divider"></li>
+						<li><a tabindex="-1" href="index.html" class="main-link"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
+					</ul>
+				</li>
+			</ul>
+            <span class="heading">End To End Material Flow</span>
+		</div><!-- /top-nav-->
+		
+		<aside class="fixed skin-1">
+			<div class="brand">
+				<span>BtB</span>
+				<span class="text-toggle"></span>
+			</div><!-- /brand -->					
+			<div class="sidebar-inner">
+				<div class="size-toggle">
+					<a class="btn btn-sm" id="sizeToggle">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					
+				</div><!-- /size-toggle -->	
+				<!-- /user-block -->
+				
+				<div class="main-menu">
+					<ul>
+                        <li class="">
+							<a href="home.html">
+								<span class="menu-icon">
+									<i class="fa fa-home fa-lg"></i> 
+								</span>
+								<span class="text">
+									Home
+								</span>
+							</a>
+							
+						</li>
+
+                        <li class="">
+							<a href="search.html">
+								<span class="menu-icon">
+									<i class="fa fa-search fa-lg"></i> 
+								</span>
+								<span class="text">
+								  Search Content
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+							
+						</li>
+
+						<li >
+							<a href="po-profyling.html">
+								<span class="menu-icon">
+									<i class="fa fa-desktop fa-lg"></i> 
+								</span>
+								<span class="text">
+									PO-Profiling
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
+                    </ul>
+					
+					
+				</div><!-- /main-menu -->
+			</div><!-- /sidebar-inner -->
+		</aside>
+
+		<div id="main-container">
+			<div id="breadcrumb">
+				<ul class="breadcrumb" style="margin-bottom: 20px;">
+					  <li><i class="fa fa-home"></i><a href="home.html"> Home</a></li>
+					 <li class="active">Data List View</li>	 
+				</ul>
+			</div><!-- /breadcrumb-->
+			
+			<!-- /grey-container -->
+			
+			<div class="padding-md">
+				<div class="row">
+					<div class="col-lg-12" >
+
+<div class="panel panel-info table-responsive">
+					<div class="panel-heading">
+						Purchase Order List View 
+						 
+					</div>
+					
+						<div role="grid" class="dataTables_wrapper" id="dataTable_wrapper"><div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix">
+                            <div id="loading2"></div>
+          <table class="display  table table-hover table-striped" id="example2">
+	     <thead>
+        <tr>
+<th class="ui-state-default">purchdoc</th>
+<th class="ui-state-default">vendor</th>
+    <th class="ui-state-default">pgr</th>
+    <th class="ui-state-default">crcy</th>
+    <th class="ui-state-default">oun</th>
+    <th class="ui-state-default">netvalue</th>
+    <th class="ui-state-default">cocd</th>
+    <th class="ui-state-default">quantity</th>
+    <th class="ui-state-default">porg</th>
+    <th class="ui-state-default">doctype</th>
+    <th class="ui-state-default">plnt</th>
+    <th class="ui-state-default">payt</th>
+</tr>
+	   </thead>
+	<tbody>
+		
+	</tbody>
+	
+</table>
+                            </div></div>
+
+				
+				</div><!-- /panel -->
+
+
+					</div><!-- /.col -->
+					
+				</div><!-- /.row -->
+<br>
+<div class="row">
+<div class="col-lg-12">
+<div id="level3"  class=" list1 panel panel-warning  fadeInDown animation-delay2" style="display: none">
+<div class="panel-heading">
+Detailed View Of Purchase Order : <span id="keyword"></span>
+</div>
+
+<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+											Header Details
+										</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse" style="height: 0px;">
+									<div class="panel-body">
+                                    <div id="loading"></div>
+									<table id="details" class="table table-bordered"style="width: 50%">
+                                    
+                                    
+                                    </table>	
+									</div>
+								</div>
+							</div><!-- /panel -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+											Line Items
+										</a>
+									</h4>
+								</div>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body" >
+											<table id="header" class="table table-bordered"style="width: 50%">
+                                        
+                                    </table>
+									</div>
+								</div>
+							</div><!-- /panel -->
+							<!-- /panel -->
+						</div>
+</div>
+</div>
+</div>
+
+
+					
+				</div><!-- /.row -->
+			</div><!-- /.padding-md -->
+		</div><!-- /main-container -->
+		<!-- Footer
+		================================================== -->
+		<footer>
+			<div class="row">
+				<div class="col-sm-6">
+					<span class="footer-brand">
+						<strong class="text-danger">Back To Basics</strong>
+					</span>
+					<p class="no-margin">
+						© 2013 <strong>johnson & johnson</strong>. ALL Rights Reserved. 
+					</p>
+				</div><!-- /.col -->
+			</div><!-- /.row-->
+		</footer>
+
+	</div><!-- /wrapper -->
+
+	<a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
+	
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->	
+	<!-- Jquery -->
+
+	<!-- Bootstrap -->
+	<script src="js/latestjquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>	
+    <script src="js/jquery.dataTables.min.js"></script>	
+    <script src="js/my.js"></script>
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/endless.js"></script>
+          <script src="js/spin.js"></script>
+   
+		<script type="text/javascript" charset="utf-8">
+          $(document).ready(function () {       	  
+          var ticket = sessionStorage.getItem("mykeyword");         
+          var gaiSelected = [];
+          var oTable = $('#example2').dataTable({
+              "bProcessing": true,
+              "bJQueryUI": false,
+              "bInfo": true,
+           //   "sAjaxSource": "rest/searchLndData/searchSummaryDataNode/"+ ticket,
+               "sAjaxSource": "http://jjsandbox.relevancelab.com:8080/E2EMF/rest/searchLndData/searchSummaryDataNode/"+ ticket,
+              "sProcessing": "",
+              "aoColumns": [
+                                                                   { "mData": "purchdoc" },
+                                                                   { "mData": "vendor" },
+                                                                   { "mData": "pgr" },
+                                                                   { "mData": "crcy" },
+                                                                   { "mData": "oun" },
+                                                                   { "mData": "netvalue" },
+                                                                   { "mData": "cocd" },
+                                                                   { "mData": "quantity" },
+                                                                   { "mData": "porg" },
+                                                                   { "mData": "doctype" },
+                                                                   { "mData": "plnt" },
+                                                                   { "mData": "payt" }
+                                                               ]
+          });
+
+      });
+
+   
+      $(document).on('click', '#example2 tr td', function () {
+    	  
+    	  //var contextPath = window.location.pathname;     
+    	  //var contextName = contextPath.split("/");
+    	  //var context = contextName[1];
+    	  //var host = window.location.host;    
+    	  
+          var tdvalue = $(this).text();
+          $('.list1').show();
+          $(window).scrollTop($('#level3').offset().top);
+          $('#keyword').empty();
+          $('#keyword').append(tdvalue);
+          $.ajax({
+              type: "GET",
+              url: "rest/searchLndData/searchDetailedData/" + tdvalue,
+              //  url: "jsonfiles/level3.json",
+              dataType: "json",
+              beforeSend: function () {
+                  $('#loading').show();
+              },
+              complete: function () {
+                  $('#loading').hide();
+              },
+              success: function (data) {
+                  $('#header').empty();
+                  $('#details').empty();
+                  $.each(data.HeaderKey, function () {
+                      $.each(this, function (k, v) {
+
+                          $('#details').append('<tr><td><strong>' + k + '</strong></td><td>' + v + '</td></tr>');
+                      });
+                  });
+
+                  $.each(data.DetailKey, function () {
+                      $.each(this, function (i, v) {
+
+                          $('#header').append('<tr><td><strong>' + i + '</strong></td><td>' + v + '</td></tr>');
+                      });
+                  });
+              },
+              error: function (errorcode, errormsg) {
+                  console.log('errorcode:: ' + errorcode.statusText + ' errormsg:: ' + errormsg);
+              }
+          });
+
+      });
+
+      $(document).ready(function () {
+          $('#collapseOne').collapse('show');
+      });
+
+       //   window.onload = checkAuthentication;
+		</script>	
+ 
+ <script>
+var opts = {
+  lines: 12, // The number of lines to draw
+  length: 8, // The length of each line
+  width: 5, // The line thickness
+  radius: 15, // The radius of the inner circle
+  corners: 0.7, // Corner roundness (0..1)
+  rotate: 0, // The rotation offset
+  direction: 1, // 1: clockwise, -1: counterclockwise
+  color: '#000', // #rgb or #rrggbb or array of colors
+  speed: 1, // Rounds per second
+  trail: 60, // Afterglow percentage
+  shadow: false, // Whether to render a shadow
+  hwaccel: false, // Whether to use hardware acceleration
+  className: 'spinner', // The CSS class to assign to the spinner
+  zIndex: 2e9, // The z-index (defaults to 2000000000)
+  top: '-70', // Top position relative to parent in px
+  left: '500' // Left position relative to parent in px
+};
+var target = document.getElementById('loading');
+var spinner = "";
+ </script>
+
+<div id="cboxOverlay" style="display: none;"></div>
+      
+<!-- /.modal -->
+  </body></html>

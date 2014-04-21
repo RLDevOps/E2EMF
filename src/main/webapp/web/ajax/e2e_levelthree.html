@@ -1,0 +1,96 @@
+<!-- row -->
+<div class="jarviswidget jarviswidget-color-light " id="wid-id-32" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false" data-widget-sortable="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i></span>
+					<h2 >Detail View</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						<div class="col-md-12" style="padding-top: 10px!important;">
+<div class="row">
+<div class="col-md-6">
+<h3>Purchase Order No:115703</h3>
+ </div>
+</div>   
+<br>
+<div id="xsltemplate" ></div>
+</div>
+						
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+
+
+<script>
+
+    // DO NOT REMOVE : GLOBAL FUNCTIONS!
+    pageSetUp();
+
+    function loadXMLDoc(dname) {
+        
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        }
+        else {
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("GET", dname, false);
+        xhttp.send("");
+        return xhttp.responseXML;
+    }
+
+    function displayResult() {
+        xml = loadXMLDoc("js/level3.xml");
+        xsl = loadXMLDoc("js/l3.xsl");
+        // code for IE
+        if (window.ActiveXObject) {
+            ex = xml.transformNode(xsl);
+            document.getElementById("xsltemplate").innerHTML = ex;
+        }
+        // code for Mozilla, Firefox, Opera, etc.
+        else if (document.implementation && document.implementation.createDocument) {
+            xsltProcessor = new XSLTProcessor();
+            xsltProcessor.importStylesheet(xsl);
+            resultDocument = xsltProcessor.transformToFragment(xml, document);
+            document.getElementById("xsltemplate").appendChild(resultDocument);
+        }
+    }
+
+    displayResult(); 
+    loadXMLDoc();
+
+
+
+
+
+</script>

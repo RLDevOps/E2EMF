@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!--don't get confused with this debug; it is only to output log4j debug -->
+
+<log4j:configuration debug="true">
+
+	<appender name="coreappender" class="org.apache.log4j.RollingFileAppender">
+		<!-- CORE LOG FILE -->
+		<param name="file" value="/apps1/E2EMF/e2emf.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<param name="MaxFileSize" value="250MB" />
+		<param name="MinBackupIndex" value="1" />
+		<param name="MaxBackupIndex" value="150" />
+		<param name="bufferedIO" value="false" />
+		<param name="bufferSize" value="8192" />
+		<param name="immediateFlush" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- The log message pattern -->
+			<param name="ConversionPattern" value="%d{ISO8601} %5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="errorappender" class="org.apache.log4j.RollingFileAppender">
+		<!-- MONITORING LOG FILE -->
+		<param name="file" value="/apps1/E2EMF/e2emfError.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<param name="MaxFileSize" value="250MB" />
+		<param name="MinBackupIndex" value="1" />
+		<param name="MaxBackupIndex" value="150" />
+		<param name="bufferedIO" value="false" />
+		<param name="bufferSize" value="8192" />
+		<param name="immediateFlush" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- The log message pattern -->
+			<param name="ConversionPattern" value="%d{ISO8601} %5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="Default" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="/apps1/E2EMF/e2emf.log" />
+		<param name="append" value="true" />
+		<param name="encoding" value="UTF-8" />
+		<param name="MaxFileSize" value="250MB" />
+		<param name="MinBackupIndex" value="1" />
+		<param name="MaxBackupIndex" value="150" />
+		<param name="bufferedIO" value="false" />
+		<param name="bufferSize" value="8192" />
+		<param name="immediateFlush" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- The log message pattern -->
+			<param name="ConversionPattern" value="%d{ISO8601} %5p [%t] %c - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="e2emf" additivity="false">
+		<level value="info" />
+		<appender-ref ref="coreappender" />
+	</logger>
+
+	<logger name="e2emfError" additivity="false">
+		<level value="error" />
+		<appender-ref ref="errorappender" />
+	</logger>
+
+	<root>
+		<priority value="info" />
+		<appender-ref ref="Default" />
+	</root>
+
+</log4j:configuration>  

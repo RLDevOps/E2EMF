@@ -1,0 +1,410 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+ul {
+	padding: 0px !important;
+}
+
+.entities li {
+	list-style: none;
+	margin: 5px 0 5px -8px;
+	border-bottom: solid 1px #eee;
+	padding: 5px;
+	cursor: pointer;
+	font-size: 13px;
+	color: #000 !important;
+    
+}
+
+.listitems{
+   margin: 0;
+   padding: 0; 
+   list-style: none;
+   padding: 2px;
+   margin-bottom: 10px;
+}
+
+.entities .active {  
+   background: #adbcc7;
+   font-weight: bold;
+}
+.entities .active a{
+    color: #fff!important;
+}
+/* li:hover {
+	color: #0094ff;
+}*/
+
+.facets {
+	list-style: none;
+	margin: 5px;
+	padding: 5px;
+	font-size: 15px;
+	color: #777777 !important;
+}
+
+.searchkey {
+   font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 5px;
+    text-decoration: -moz-anchor-decoration;
+    
+}
+
+.teaser {
+	margin-bottom: 8px;
+	margin-top: 8px;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+#chart {
+	height: 500px;
+}
+
+.node rect {
+	cursor: move;
+	fill-opacity: .9;
+	shape-rendering: crispEdges;
+    pointer-events: all;
+}
+
+.node rect:hover {
+    pointer-events: all;
+    border: solid 1px #fff;
+}
+
+.node text {
+	pointer-events: none;
+	text-shadow: 0 1px 0 #fff;
+}
+
+.link {
+	fill: none;
+	stroke-opacity: .6;
+}
+
+.link:hover {
+	stroke-opacity: .9;
+}
+
+.icon-mat{
+      background: none repeat scroll 0 0 #EEEEEE;
+    font-size: 16px;
+    padding: 7px;
+    position: relative;
+    top: 2px;
+}
+
+
+
+.input-div span {
+	background: none repeat scroll 0 0 #EEEEEE;
+    font-size: 16px;
+    padding: 0 7px 7px;
+}
+
+table{
+    width: 100% !important;
+}
+
+.spinner{
+ padding: 5px;
+ font-size: 14px;
+ margin-left: 20px;   
+}
+
+.material-box{
+	margin: 20px;
+}
+.material-box .btn{
+	margin: 0 20px;
+}
+
+.select2-container-multi .select2-choices .select2-search-choice{
+	background-color: #F7F7F7 !important;
+    border: 1px solid #EFF0F0 !important;
+    color: #69737A !important;
+}
+.select2-search-choice-close:before{
+	color: #69737A !important;
+}
+.select2-drop-active{
+	border: 1px solid #69737A !important;
+}
+.select2-results .select2-highlighted{
+	background: none repeat scroll 0 0 #EFF0F0 !important;
+    color: #69737A !important;
+}
+.select2-container-multi.select2-container-active .select2-choices{
+	border: 1px solid #69737A !important;
+}
+.legends span{
+  margin: 1px;
+    
+    padding-right: 5px;
+  
+
+}
+
+.legends {margin-bottom: 10px;margin-top: 10px; display:none;}
+ #subcontracting
+ { color: #bfea55;padding: 2px}
+ #normalpurchasing{color: #71afdb;padding: 2px}
+ #Dropship{color: #fc8530;padding: 2px}
+ #Intercompany{color: #f03434;padding: 2px}
+ #Consignment{color: #fc96ee;padding: 2px}
+ #DirectSales{color: #fde560;padding: 2px}
+ #ExternalProcessing{color: #4b4545;padding: 2px}
+ #StockTransfer{color: #0f691b;padding: 2px}
+ #Vendors
+ { color: #eee  ;padding: 2px}
+
+ #External{color: #4c1362 ;padding: 2px}
+ #Manufacturing{color: #1A6F8B ;padding: 2px}
+ #Delivering{color: #1e2548 ;padding: 2px}
+ #Distributor{color: #9d591b;padding: 2px}
+#Customer{color: #392009; padding: 2px}
+
+
+
+
+/*tipsy css*/
+.tipsy { font-size: 12px; position: absolute; padding: 5px; z-index: 100000; }
+.tipsy-inner { background-color: #000; color: #FFF; max-width: 200px; padding: 5px 8px 4px 8px; text-align: center; }
+
+  /* Rounded corners
+  .tipsy-inner { border-radius: px; -moz-border-radius: 3px; -webkit-border-radius: 3px; } */
+  
+  /* Uncomment for shadow */
+  /*.tipsy-inner { box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; -moz-box-shadow: 0 0 5px #000000; }*/
+  
+  .tipsy-arrow { position: absolute; width: 0; height: 0; line-height: 0; border: 5px dashed #000; }
+  
+  /* Rules to colour arrows */
+  .tipsy-arrow-n { border-bottom-color: #000; }
+  .tipsy-arrow-s { border-top-color: #000; }
+  .tipsy-arrow-e { border-left-color: #000; }
+  .tipsy-arrow-w { border-right-color: #000; }
+  
+	.tipsy-n .tipsy-arrow { top: 0px; left: 50%; margin-left: -5px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent; }
+    .tipsy-nw .tipsy-arrow { top: 0; left: 10px; border-bottom-style: solid; border-top: none; border-left-color: transparent; border-right-color: transparent;}
+    .tipsy-ne .tipsy-arrow { top: 0; right: 10px; border-bottom-style: solid; border-top: none;  border-left-color: transparent; border-right-color: transparent;}
+  .tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -5px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+    .tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; border-top-style: solid; border-bottom: none;  border-left-color: transparent; border-right-color: transparent; }
+    .tipsy-se .tipsy-arrow { bottom: 0; right: 10px; border-top-style: solid; border-bottom: none; border-left-color: transparent; border-right-color: transparent; }
+  .tipsy-e .tipsy-arrow { right: 0; top: 50%; margin-top: -5px; border-left-style: solid; border-right: none; border-top-color: transparent; border-bottom-color: transparent; }
+  .tipsy-w .tipsy-arrow { left: 0; top: 50%; margin-top: -5px; border-right-style: solid; border-left: none; border-top-color: transparent; border-bottom-color: transparent; }
+
+#filter{
+    display: block;
+    float: left;
+    font-size: 111%;
+    height: 32px;
+    line-height: 32px;
+    margin-right: 15px;
+    position: relative;
+    text-align: center;
+    width: 65px;
+    cursor: pointer
+}
+
+.cust-dropdown-menu {
+    background-clip: padding-box;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 2px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    display: none;
+    float: left;
+    font-size: 13px;
+    left: 0;
+    list-style: none outside none;
+    margin: 2px 0 0;
+    min-height: 300px;
+    min-width: 916px;
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
+/*paper css*/
+.paper {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: #fafafa;
+    border: 1px solid #fafafa;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
+}
+.paper:before, .paper:after {
+    content: "";
+    position: absolute;
+    z-index: -2;
+}
+    
+   .paper-curve-right:before {
+    left: 50%;
+    right: 0;
+}
+ 
+.paper-curve-vert:before {
+    right: 0;
+}
+ 
+.paper-curve-above:before,
+.paper-curve-below:before,
+.paper-curve-horiz:before {
+    left: 10px;
+    right: 10px;
+    -webkit-border-radius: 100px 10px;
+    -moz-border-radius: 100px / 10px;
+    border-radius: 100px / 10px;
+}
+ 
+.paper-curve-above:before {
+    top: 0;
+    bottom: 50%;
+}
+ 
+.paper-curve-below:before, .paper-curve-horiz:before {
+    top: 50%;
+    bottom: 0;
+}
+ 
+.paper-curve-horiz:before {
+    top: 0;
+}
+
+.flowdiagram{
+    width: 100%;
+    clear: both;
+    margin-bottom: 30px;
+    position: relative;
+    top:0;
+  
+
+}
+
+
+#loading{
+   left: 120px;
+    position: relative;
+    top: 8px;
+}
+
+
+.smart-form *, .smart-form *:after, .smart-form *:before {
+    -moz-box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+}
+.smart-form *, .smart-form *:after, .smart-form *:before {
+    -moz-box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+}
+.smart-form *, .smart-form *:after, .smart-form *:before {
+    -moz-box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+.label-primary {
+    background-color: #3276B1;
+}
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+}
+.search-results .note {
+    line-height: normal;
+}
+.smart-form .note, .note {
+    color: #999999;
+    font-size: 11px;
+    line-height: 15px;
+}
+.note {
+    color: #999999;
+    font-size: 11px;
+    line-height: 15px;
+}
+.note {
+    font-size: 10px;
+}
+.smart-form span{
+    padding: 2px 5px 2px 5px;
+    color: #fff!important;
+}
+
+
+.link-legend{padding: 2px; opacity: .6;}
+.legend-type{float: left; padding: 0px 10px 0px 0px;}
+
+#results{
+ position: relative;
+ margin-top: 60px;  
+ left: 25%; 
+ display: none;
+}
+
+#loading-1, #loading-2, #loading-3, #loading-4, #loading-5, #loading-6, #loading-7, #loading-8, #loading-9, #loading-10, #loading-11{
+position: relative;
+float: left;  
+left: -28px;  
+}
+
+
+.totalSearchCount{font-size: 14px;
+    font-weight: lighter;
+    text-align: center;
+    width: 100%;
+    color: #f03434;
+}
+
+.MessageBoxMiddle p {
+    font-size: 16px!important; 
+}
+
+
+#circle circle {
+  fill: none;
+  pointer-events: all;
+}
+
+.group path {
+  fill-opacity: .5;
+}
+
+path.chord {
+  stroke: #000;
+  stroke-width: .25px;
+}
+
+#circle:hover path.path-fade {
+  display: none;
+}

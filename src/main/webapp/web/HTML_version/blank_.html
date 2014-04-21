@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">-->
+
+		<title> SmartAdmin </title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Use the correct meta names below for your web application
+			 Ref: http://davidbcalhoun.com/2010/viewport-metatag 
+			 
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320">-->
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Basic Styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/font-awesome.min.css">
+
+		<!-- SmartAdmin Styles : Please note (smartadmin-production.css) was created using LESS variables -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-production.css">
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-skins.css">
+
+		<!-- SmartAdmin RTL Support is under construction
+		<link rel="stylesheet" type="text/css" media="screen" href="css/smartadmin-rtl.css"> -->
+
+		<!-- We recommend you use "your_style.css" to override SmartAdmin
+		specific styles this will also ensure you retrain your customization
+		with each SmartAdmin update.
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.css"> -->
+
+		<!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+		<link rel="stylesheet" type="text/css" media="screen" href="css/demo.css">
+
+		<!-- FAVICONS -->
+		<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+
+		<!-- GOOGLE FONT -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700">
+
+	</head>
+	<body class="">
+		<!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
+
+		<!-- HEADER -->
+		<header id="header">
+			<div id="logo-group">
+
+				<!-- PLACE YOUR LOGO HERE -->
+				<span id="logo"> <img src="img/logo.png" alt="SmartAdmin"> </span>
+				<!-- END LOGO PLACEHOLDER -->
+
+				<!-- Note: The activity badge color changes when clicked and resets the number to 0
+				Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+				<span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge"> 21 </b> </span>
+
+				<!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
+				<div class="ajax-dropdown">
+
+					<!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
+					<div class="btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/mail.html">
+							Msgs (14) </label>
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/notifications.html">
+							notify (3) </label>
+						<label class="btn btn-default">
+							<input type="radio" name="activity" id="ajax/notify/tasks.html">
+							Tasks (4) </label>
+					</div>
+
+					<!-- notification content -->
+					<div class="ajax-notifications custom-scroll">
+
+						<div class="alert alert-transparent">
+							<h4>Click a button to show messages here</h4>
+							This blank page message helps protect your privacy, or you can show the first message here automatically.
+						</div>
+
+						<i class="fa fa-lock fa-4x fa-border"></i>
+
+					</div>
+					<!-- end notification content -->
+
+					<!-- footer: refresh area -->
+					<span> Last updated on: 12/12/2013 9:43AM
+						<button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i> Loading..." class="btn btn-xs btn-default pull-right">
+							<i class="fa fa-refresh"></i>
+						</button> </span>
+					<!-- end footer -->
+
+				</div>
+				<!-- END AJAX-DROPDOWN -->
+			</div>
+
+			<!-- projects dropdown -->
+			<div id="project-context">
+
+				<span class="label">Projects:</span>
+				<span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
+
+				<!-- Suggestion: populate this list with fetch and push technique -->
+				<ul class="dropdown-menu">
+					<li>
+						<a href="javascript:void(0);">Online e-merchant management system - attaching integration with the iOS</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Notes on pipeline upgradee</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">Assesment Report for merchant account</a>
+					</li>
+					<li class="divider"></li>
+					<li>
+						<a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+					</li>
+				</ul>
+				<!-- end dropdown-menu-->
+
+			</div>
+			<!-- end projects dropdown -->
+
+			<!-- pulled right: nav area -->
+			<div class="pull-right">
+
+				<!-- collapse menu button -->
+				<div id="hide-menu" class="btn-header pull-right">
+					<span> <a href="javascript:void(0);" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+				</div>
+				<!-- end collapse menu -->
+
+				<!-- logout button -->
+				<div id="logout" class="btn-header transparent pull-right">
+					<span> <a href="login.html" title="Sign Out"><i class="fa fa-sign-out"></i></a> </span>
+				</div>
+				<!-- end logout button -->
+
+				<!-- search mobile button (this is hidden till mobile view port) -->
+				<div id="search-mobile" class="btn-header transparent pull-right">
+					<span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+				</div>
+				<!-- end search mobile button -->
+
+				<!-- input: search field -->
+				<form action="#search.html" class="header-search pull-right">
+					<input type="text" placeholder="Find reports and more" id="search-fld">
+					<button type="submit">
+						<i class="fa fa-search"></i>
+					</button>
+					<a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+				</form>
+				<!-- end input: search field -->
+
+				<!-- multiple lang dropdown : find all flags in the image folder -->
+				<ul class="header-dropdown-list hidden-xs">
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"> <img alt="" src="img/flags/us.png"> <span> US </span> <i class="fa fa-angle-down"></i> </a>
+						<ul class="dropdown-menu pull-right">
+							<li class="active">
+								<a href="javascript:void(0);"><img alt="" src="img/flags/us.png"> US</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img alt="" src="img/flags/es.png"> Spanish</a>
+							</li>
+							<li>
+								<a href="javascript:void(0);"><img alt="" src="img/flags/de.png"> German</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end multiple lang -->
+
+			</div>
+			<!-- end pulled right: nav area -->
+
+		</header>
+		<!-- END HEADER -->
+
+		<!-- Left panel : Navigation area -->
+		<!-- Note: This width of the aside area can be adjusted through LESS variables -->
+		<aside id="left-panel">
+
+			<!-- User info -->
+			<div class="login-info">
+				<span> <!-- User image size is adjusted inside CSS, it should stay as it --> <img src="img/avatars/sunny.png" alt="me" class="online" /> <a href="javascript:void(0);" id="show-shortcut">john.doe <i class="fa fa-angle-down"></i></a> </span>
+			</div>
+			<!-- end user info -->
+
+			<!-- NAVIGATION : This navigation is also responsive
+
+			To make this navigation dynamic please make sure to link the node
+			(the reference to the nav > ul) after page load. Or the navigation
+			will not initialize.
+			-->
+			<nav>
+				<!-- NOTE: Notice the gaps after each icon usage <i></i>..
+				Please note that these links work a bit different than
+				traditional hre="" links. See documentation for details.
+				-->
+
+				<ul>
+					<li>
+						<a href="index.html" title="Dashboard"><i class="fa fa-lg fa-fw fa-home"></i> <span class="menu-item-parent">Dashboard</span></a>
+					</li>
+					<li>
+						<a href="inbox.html"><i class="fa fa-lg fa-fw fa-inbox"></i> <span class="menu-item-parent">Inbox</span><span class="badge pull-right inbox-badge">14</span></a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Graphs</span></a>
+						<ul>
+							<li>
+								<a href="flot.html">Flot Chart</a>
+							</li>
+							<li>
+								<a href="morris.html">Morris Charts</a>
+							</li>
+							<li>
+								<a href="inline-charts.html">Inline Charts</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-table"></i> <span class="menu-item-parent">Tables</span></a>
+						<ul>
+							<li>
+								<a href="table.html">Normal Tables</a>
+							</li>
+							<li>
+								<a href="datatables.html">Data Tables</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Forms</span></a>
+						<ul>
+							<li>
+								<a href="form-elements.html">Smart Form Elements</a>
+							</li>
+							<li>
+								<a href="form-templates.html">Smart Form Layouts</a>
+							</li>
+							<li>
+								<a href="validation.html">Smart Form Validation</a>
+							</li>
+							<li>
+								<a href="bootstrap-forms.html">Bootstrap Form Elements</a>
+							</li>
+							<li>
+								<a href="plugins.html">Form Plugins</a>
+							</li>
+							<li>
+								<a href="wizard.html">Wizards</a>
+							</li>
+							<li>
+								<a href="other-editors.html">Bootstrap Editors</a>
+							</li>
+							<li>
+								<a href="dropzone.html">Dropzone <span class="badge pull-right inbox-badge bg-color-yellow">new</span></a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-desktop"></i> <span class="menu-item-parent">UI Elements</span></a>
+						<ul>
+							<li>
+								<a href="general-elements.html">General Elements</a>
+							</li>
+							<li>
+								<a href="buttons.html">Buttons</a>
+							</li>
+							<li>
+								<a href="#">Icons</a>
+								<ul>
+									<li>
+										<a href="fa.html"><i class="fa fa-plane"></i> Font Awesome</a>
+									</li>	
+									<li>
+										<a href="glyph.html"><i class="glyphicon glyphicon-plane"></i> Glyph Icons </a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="grid.html">Grid</a>
+							</li>
+							<li>
+								<a href="treeview.html">Tree View</a>
+							</li>
+							<li>
+								<a href="nestable-list.html">Nestable Lists</a>
+							</li>
+							<li>
+								<a href="jqui.html">JQuery UI</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-folder-open"></i> <span class="menu-item-parent">6 Level Navigation</span></a>
+						<ul>
+							<li>
+								<a href="#"><i class="fa fa-fw fa-folder-open"></i> 2nd Level</a>
+								<ul>
+									<li>
+										<a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level </a>
+										<ul>
+											<li>
+												<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+											</li>
+											<li>
+												<a href="#"><i class="fa fa-fw fa-folder-open"></i> 4th Level</a>
+												<ul>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+													</li>
+													<li>
+														<a href="#"><i class="fa fa-fw fa-folder-open"></i> 5th Level</a>
+														<ul>
+															<li>
+																<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+															</li>
+															<li>
+																<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-fw fa-folder-open"></i> Folder</a>
+
+								<ul>
+									<li>
+										<a href="#"><i class="fa fa-fw fa-folder-open"></i> 3ed Level </a>
+										<ul>
+											<li>
+												<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+											</li>
+											<li>
+												<a href="#"><i class="fa fa-fw fa-file-text"></i> File</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="calendar.html"><i class="fa fa-lg fa-fw fa-calendar"><em>3</em></i> <span class="menu-item-parent">Calendar</span></a>
+					</li>
+					<li>
+						<a href="widgets.html"><i class="fa fa-lg fa-fw fa-list-alt"></i> <span class="menu-item-parent">Widgets</span></a>
+					</li>
+					<li>
+						<a href="gallery.html"><i class="fa fa-lg fa-fw fa-picture-o"></i> <span class="menu-item-parent">Gallery</span></a>
+					</li>
+					<li>
+						<a href="gmap-xml.html"><i class="fa fa-lg fa-fw fa-map-marker"></i> <span class="menu-item-parent">Google Map Skins</span><span class="badge bg-color-greenLight pull-right inbox-badge">9</span></a>
+					</li>
+					<li>
+						<a href="#"><i class="fa fa-lg fa-fw fa-windows"></i> <span class="menu-item-parent">Miscellaneous</span></a>
+						<ul>
+							<li>
+								<a href="typography.html">Typography</a>
+							</li>
+							<li>
+								<a href="pricing-table.html">Pricing Tables</a>
+							</li>
+							<li>
+								<a href="invoice.html">Invoice</a>
+							</li>
+							<li>
+								<a href="login.html" target="_top">Login</a>
+							</li>
+							<li>
+								<a href="register.html" target="_top">Register</a>
+							</li>
+							<li>
+								<a href="lock.html" target="_top">Locked Screen</a>
+							</li>
+							<li>
+								<a href="error404.html">Error 404</a>
+							</li>
+							<li>
+								<a href="error500.html">Error 500</a>
+							</li>
+							<li class="active">
+								<a href="blank_.html">Blank Page</a>
+							</li>
+							<li>
+								<a href="email-template.html">Email Template</a>
+							</li>
+							<li>
+								<a href="search.html">Search Page</a>
+							</li>
+							<li>
+								<a href="ckeditor.html">CK Editor</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			<span class="minifyme"> <i class="fa fa-arrow-circle-left hit"></i> </span>
+
+		</aside>
+		<!-- END NAVIGATION -->
+
+		<!-- MAIN PANEL -->
+		<div id="main" role="main">
+
+			<!-- RIBBON -->
+			<div id="ribbon">
+
+				<span class="ribbon-button-alignment"> <span id="refresh" class="btn btn-ribbon" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true"><i class="fa fa-refresh"></i></span> </span>
+
+				<!-- breadcrumb -->
+				<ol class="breadcrumb">
+					<li>
+						Blank Page
+					</li>
+				</ol>
+				<!-- end breadcrumb -->
+
+				<!-- You can also add more buttons to the
+				ribbon for further usability
+
+				Example below:
+
+				<span class="ribbon-button-alignment pull-right">
+				<span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
+				<span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
+				<span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
+				</span> -->
+
+			</div>
+			<!-- END RIBBON -->
+
+			<!-- MAIN CONTENT -->
+			<div id="content">
+
+                <section id="widget-grid" class="">
+<!-- row -->
+<div class="row">
+<!-- NEW WIDGET START -->
+<article class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+<div class="row">
+<div class="col-md-3">
+<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget jarviswidget-color-light " id="wid-id-1" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i></span>
+					<h2 >PO Types</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						<div id="row-chart">
+		
+<!-- <a class="reset" href="javascript:horzBarChart.filterAll();dc.redrawAll();" style="display: none;">reset</a> -->
+   <div class="clearfix"></div>
+				 </div>
+						
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+</div>
+<div class="col-md-9">
+<!-- Widget ID (each widget will need unique ID)-->
+<div class="jarviswidget jarviswidget-color-light " id="wid-id-2" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false"  >
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i></span>
+					<h2>PO Analytics By Dimensions</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div style="background:url('img/main-back.png') repeat scroll 0 0 #FFFFFF">
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox" >
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+
+			       <!-- <a class="reset" href="javascript:yearlyBubbleChart.filterAll();dc.redrawAll();"
+			           style="display: none;">reset</a>		-->
+			           <div id="pie-chart-Vendor" class="col-md-4" >
+				        <strong>Vendor</strong>
+				      <!--   <a class="reset" href="javascript:pieChart.filterAll();dc.redrawAll();" style="display: none;">reset</a> -->
+				
+				        <div class="clearfix"></div>
+		    		</div>	
+			          
+			 
+			    
+				    <div id="pie-chart-plant" class="col-md-4" >
+				        <strong>Plant Type</strong>
+				     <!--     <a class="reset" href="javascript:pieChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>-->
+				
+				        <div class="clearfix"></div>
+		    		</div>	
+			        
+			          <div id="pie-chart-purchaseorg" class="col-md-4" >
+				        <strong>Purchase org</strong>
+				    <!--     <a class="reset" href="javascript:pieChart.filterAll();dc.redrawAll();" style="display: none;">reset</a> -->
+				
+				        <div class="clearfix"></div>
+		    		</div>	
+			        <div class="clearfix"></div>
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+    <!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget jarviswidget-color-light " id="wid-id-3" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i>  </span>
+					<h2>PO Analytics by Dimensions -</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div style="background:url('img/main-back.png') repeat scroll 0 0 #FFFFFF">
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						<div id="pie-chart" class="col-md-4" >
+				        <strong>Material</strong>
+				       <!--  <a class="reset" href="javascript:pieChart.filterAll();dc.redrawAll();" style="display: none;">reset</a> -->
+				
+				        <div class="clearfix"></div>
+		    		</div>
+		    		<div id="pie-chart-prchasegroup" class="col-md-3" align="left">
+					        <strong>Purchase Group </strong>
+					        <a class="reset" href="javascript:gainOrLossChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+					
+					        <div class="clearfix"></div>
+					   </div>
+					   <div id="pie-chart-Companycode" class="col-md-5" align="center">
+					        <strong>Company Code</strong>
+					     <!--    <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+					        <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a> -->
+					
+					        <div class="clearfix"></div>
+					    </div>
+						
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+</div>
+</div>
+		
+
+          	
+		
+<div class="row">
+<div class="col-md-12">
+<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget jarviswidget-color-light " id="wid-id-4" data-widget-editbutton="false" data-widget-colorbutton="true" data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				<header>
+					<span class="widget-icon"> <i class="fa fa-fw fa-bar-chart-o"> </i> </span>
+					<h2>Month average net price</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						<div class="row">
+							<div id="timeline-area-chart">
+					        
+					        <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+					    <!--     <a class="reset" href="javascript:timelineAreaChart.filterAll();timelineChart.filterAll();dc.redrawAll();"
+					           style="display: none;">reset</a> -->
+					
+					        <div class="clearfix"></div>
+					    	</div>
+				    	</div>
+				    	<div class="row">
+							<div id="timeline-chart"></div>
+				    	</div>
+				    	<div class="row">
+				    		<p class="muted pull-right" style="margin-right: 15px;">select a time range to zoom in</p>
+				    	</div>
+					</div>
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+
+</div>
+</div>   
+            
+<div class="row">
+<div class="col-md-12">
+<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget jarviswidget-color-light " id="wid-id-5" data-widget-editbutton="false"  data-widget-deletebutton="false" data-widget-fullscreenbutton="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				<header>
+					<span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o"> </i></span>
+					<h2>Detail view</h2>				
+					
+				</header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body">
+						
+						
+						<div class="row">
+                             <div>
+        <div class="dc-data-count">
+            <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
+                href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+        </div>
+    </div>
+						    <table class="table table-hover dc-data-table">
+						        <thead>
+						        <tr class="">
+						            <th>Date</th>
+						            <th>PO Count</th>
+						            <th>Vendor</th>
+						            <th>Material</th>
+						            <th>Gross Value</th>
+						        </tr>
+						        </thead>
+						    </table>
+						</div>
+						
+						
+						
+					<!-- end widget content -->
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+
+</div>
+</div>              
+</div>            
+</article>
+</div> 
+</section>
+<!-- end widget grid -->
+
+<script type="text/javascript">
+	
+	// DO NOT REMOVE : GLOBAL FUNCTIONS!
+	pageSetUp();
+	
+	// PAGE RELATED SCRIPTS
+
+	// switch style change
+	$('input[name="checkbox-style"]').change(function() {
+		//alert($(this).val())
+		$this = $(this);
+
+		if ($this.attr('value') === "switch-1") {
+			$("#switch-1").show();
+			$("#switch-2").hide();
+		} else if ($this.attr('value') === "switch-2") {
+			$("#switch-1").hide();
+			$("#switch-2").show();
+		}
+
+	}); 
+	
+	// tab - pills toggle
+	$('#show-tabs').click(function() {
+		$this = $(this);
+		if($this.prop('checked')){
+			$("#widget-tab-1").removeClass("nav-pills").addClass("nav-tabs");
+		} else {
+			$("#widget-tab-1").removeClass("nav-tabs").addClass("nav-pills");
+		}
+		
+	});	
+</script>
+    <script type="text/javascript" src="js/d3.js"></script>
+    <script type="text/javascript" src="js/crossfilter.js"></script>
+    <script type="text/javascript" src="js/dc.js"></script>
+    <script type="text/javascript" src="js/colorbrewer.js"></script>
+
+<script>
+    //# dc.js Getting Started and How-To Guide
+    'use strict';
+
+    /* jshint globalstrict: true */
+    /* global dc,d3,crossfilter,colorbrewer */
+    // ### Create Chart Objects
+    // Create chart objects assocated with the container elements identified by the css selector.
+    // Note: It is often a good idea to have these objects accessible at the global scope so that they can be modified or filtered by other page controls.
+    var gainOrLossChart = dc.pieChart("#gain-loss-chart");
+    var fluctuationChart = dc.barChart("#fluctuation-chart");
+    var pieChart = dc.pieChart("#pie-chart");
+    var pieChartVendor = dc.pieChart("#pie-chart-Vendor");
+    var pieChartCompanyCode = dc.pieChart("#pie-chart-Companycode");
+    var pieChartPurchaseGrp = dc.pieChart("#pie-chart-prchasegroup");
+    var pieChartPlant = dc.pieChart("#pie-chart-plant");
+    var pieChartPurchaseorg = dc.pieChart("#pie-chart-purchaseorg");
+
+    var horzBarChart = dc.rowChart("#row-chart");
+    var yearlyBubbleChart = dc.bubbleChart("#yearly-bubble-chart");
+    var timelineAreaChart = dc.lineChart("#timeline-area-chart");
+    var timelineChart = dc.barChart("#timeline-chart");
+
+    d3.csv("http://jjsandbox.relevancelab.com:8080/E2EMF/rest/profiling/dropship", function (data) {
+        //console.debug(data);
+        //alert(3);
+        /* since its a csv file we need to format the data a bit */
+        //var dateFormat = d3.time.format("%Y.%m.%d");
+        var dateFormat = d3.time.format("%m/%d/%Y");
+
+        var numberFormat = d3.format(".2f");
+
+        /*var xd = "2008.08.01";
+        var xf = dateFormat.parse(xd);
+        alert(xd);
+        alert(d3.time.month(xf).getMonth());*/
+        var flag = 1;
+        data.forEach(function (d) {
+            d.dd = dateFormat.parse(d.lastchangedon);
+            d.month = d3.time.month(d.dd); // pre-calculate month for better performance
+            //d.year = d3.time.year(d.dd);
+            //d.close = +d.close; // coerce to number
+            //d.open = +d.open;
+            d.po_count = +d.po_count;
+            d.orderquantity = +d.orderquantity;
+            d.grossordervalue = +d.grossordervalue;
+            d.netprice = +d.netprice;
+
+            /*test code to see nth record
+            if (flag == 100)
+            {
+            alert(d.month);
+            alert(d.dd);
+            alert(d3.time.year(d.dd));
+
+            }
+            flag++;*/
+
+        });
+
+        //### Create Crossfilter Dimensions and Groups
+        //See the [crossfilter API](https://github.com/square/crossfilter/wiki/API-Reference) for reference.
+        var ndx = crossfilter(data);
+        var all = ndx.groupAll();
+
+        // dimension by year
+        var yearlyDimension = ndx.dimension(function (d) {
+            return d3.time.year(d.dd).getFullYear() + "-" + (d3.time.month(d.dd).getMonth() + 1);
+            //return d.Vendor;
+        });
+        // maintain running tallies by year as filters are applied or removed
+        var yearlyPerformanceGroup = yearlyDimension.group().reduce(
+        /* callback for when data is added to the current filter results */
+            function (p, v) {
+                ++p.count;
+                p.absGain += v.netprice;
+                p.absGain2 += v.grossordervalue;
+                p.fluctuation += (v.grossordervalue - v.netprice);
+                p.radiusIndex += v.orderquantity;
+                p.radiusPercentage = p.radiusIndex / p.count;
+                p.yAxisVariancePercentage = (p.fluctuation / p.absGain2);
+                p.xAxisVariancePercentage = (p.fluctuation / p.absGain); //(p.fluctuation / p.radiusIndex) * 100;
+                return p;
+            },
+        /* callback for when data is removed from the current filter results */
+            function (p, v) {
+                --p.count;
+                p.absGain -= v.netprice;
+                p.absGain2 -= v.grossordervalue;
+                p.fluctuation -= (v.grossordervalue - v.netprice);
+                p.radiusIndex -= v.orderquantity;
+
+                p.radiusPercentage = p.radiusIndex / p.count;
+                p.yAxisVariancePercentage = (p.fluctuation / p.absGain2);
+                p.xAxisVariancePercentage = (p.fluctuation / p.absGain); //(p.fluctuation / p.radiusIndex) * 100;
+                return p;
+            },
+        /* initialize p */
+            function () {
+                return { count: 0, absGain: 0, absGain2: 0, fluctuation: 0, xAxisVariancePercentage: 0, radiusPercentage: 0, radiusIndex: 0, yAxisVariancePercentage: 0 };
+            }
+        );
+
+
+        // dimension by full date
+        var dataTableDimension = ndx.dimension(function (d) {
+            return d.dd;
+        });
+
+        // dimension by month
+        var timelineDimension = ndx.dimension(function (d) {
+            //console.debug(d.month);
+            return d.month;
+        });
+        // group by total volume within move, and scale down result
+        var timelineGroup = timelineDimension.group().reduceSum(function (d) {
+            return d.orderquantity
+        });
+        // group by total movement within month
+        var timelineSecondGroup = timelineDimension.group().reduceSum(function (d) {
+            return d.po_count;
+        });
+        var timelineAreaGroup = timelineDimension.group().reduce(
+            function (p, v) {
+                ++p.count;
+                p.total += v.netprice; //(v.open + v.close) / 2;
+                p.avg = Math.round(p.total / p.count);
+                return p;
+            },
+            function (p, v) {
+                --p.count;
+                p.total -= v.netprice; //(v.open + v.close) / 2;
+                p.avg = p.count ? Math.round(p.total / p.count) : 0;
+                return p;
+            },
+            function () {
+                return { count: 0, total: 0, avg: 0 };
+            }
+        );
+
+
+        // create categorical dimension
+        var gainOrLoss = ndx.dimension(function (d) {
+            /*if (Math.abs(d.open - d.close) > 20)
+            return "C-3";
+            else
+            return d.open > d.close ? "C-1" : "C-2";*/
+            return d.type;
+        });
+        // produce counts records in the dimension
+        var gainOrLossGroup = gainOrLoss.group();
+        // determine a histogram of percent changes
+        var fluctuation = ndx.dimension(function (d) {
+            return d.po_count; //Math.round((d.close - d.open) / d.open * 100);   
+            // summerize volume by quarter
+            var pieGroupDimension = ndx.dimension(function (d) {
+                return d.material_type;
+            });
+            var pieChartVendorGroupDimention = ndx.dimension(function (d) {
+                return d.vendor_type;
+            });
+            var pieChartCompanyGroupDimention = ndx.dimension(function (d) {
+                return d.companycode;
+            });
+            var pieChartPurchaseGroupDimention = ndx.dimension(function (d) {
+                return d.purchasegroup;
+            });
+            var pieChartPlantDimention = ndx.dimension(function (d) {
+                return d.plantgroup;
+            });
+            var pieChartPurchaseorgDimention = ndx.dimension(function (d) {
+                return d.purchaseorg;
+            });
+
+
+            var pieGroup = pieGroupDimension.group().reduceSum(function (d) {
+                return d.po_count;
+            });
+            var pieVendorGroup = pieChartVendorGroupDimention.group().reduceSum(function (d) {
+                return d.po_count;
+            });
+            var pieCompanyGroup = pieChartCompanyGroupDimention.group().reduceSum(function (d) {
+                return d.po_count;
+            });
+            var piePurchaseGroup = pieChartPurchaseGroupDimention.group().reduceSum(function (d) {
+                return d.po_count;
+            });
+            var piePlantGroup = pieChartPlantDimention.group().reduceSum(function (d) {
+                return d.po_count;
+            });
+            var piePurchaseOrgGroup = pieChartPurchaseorgDimention.group().reduceSum(function (d) {
+                return d.po_count;
+            });
+
+            // counts per weekday
+            var horzBarDimension = ndx.dimension(function (d) {
+                //var day = d.dd.getDay();
+                //var name=["None","Drop-ship","Sub-Contracting","Ext-Process","Kitting","Cold chain","Other"];
+                //return day+"."+name[day];
+                return d.po_type;
+            });
+            var horzBarGrp = horzBarDimension.group();
+
+            //### Define Chart Attributes
+            //Define chart attributes using fluent methods. See the [dc API Reference](https://github.com/dc-js/dc.js/blob/master/web/docs/api-1.7.0.md)       for more information
+            //
+            /* dc.bubbleChart("#yearly-bubble-chart", "chartGroup") */
+            yearlyBubbleChart
+            .width(780) // (optional) define chart width, :default = 200
+            .height(200)  // (optional) define chart height, :default = 200
+            .transitionDuration(1500) // (optional) define chart transition duration, :default = 750
+            .margins({ top: 10, right: 50, bottom: 30, left: 40 })
+            .dimension(yearlyDimension)
+            //Bubble chart expect the groups are reduced to multiple values which would then be used
+            //to generate x, y, and radius for each key (bubble) in the group
+            .group(yearlyPerformanceGroup)
+            .colors(colorbrewer.RdYlGn[9]) // (optional) define color function or array for bubbles
+            .colorDomain([-500, 500]) //(optional) define color domain to match your data domain if you want to bind data or color
+            //##### Accessors
+            //Accessor functions are applied to each value returned by the grouping
+            //
+            //* `.colorAccessor` The returned value will be mapped to an internal scale to determine a fill color
+            //* `.keyAccessor` Identifies the `X` value that will be applied against the `.x()` to identify pixel location
+            //* `.valueAccessor` Identifies the `Y` value that will be applied agains the `.y()` to identify pixel location
+            //* `.radiusValueAccessor` Identifies the value that will be applied agains the `.r()` determine radius size, by default this maps linearly to [0,100]
+            .colorAccessor(function (d) {
+                return d.value.absGain;
+            })
+            .keyAccessor(function (p) {
+                return p.value.xAxisVariancePercentage;
+            })
+            .valueAccessor(function (p) {
+                return p.value.yAxisVariancePercentage;
+            })
+            .radiusValueAccessor(function (p) {
+                return p.value.radiusPercentage; //p.value.xAxisVariancePercentage;
+            })
+            .maxBubbleRelativeSize(0.3)
+            .x(d3.scale.linear().domain([-2500, 2500]))
+            .y(d3.scale.linear().domain([-3, 2040]))
+            .r(d3.scale.linear().domain([0, 10000]))//To adjust relative scalling of bubble size
+            //##### Elastic Scaling
+            //`.elasticX` and `.elasticX` determine whether the chart should rescale each axis to fit data.
+            //The `.yAxisPadding` and `.xAxisPadding` add padding to data above and below their max values in the same unit domains as the Accessors.
+            .elasticY(true)
+            .elasticX(true)
+            .yAxisPadding(100)
+            .xAxisPadding(500)
+            .renderHorizontalGridLines(true) // (optional) render horizontal grid lines, :default=false
+            .renderVerticalGridLines(true) // (optional) render vertical grid lines, :default=false
+            .xAxisLabel('Variance to average value') // (optional) render an axis label below the x axis
+            .yAxisLabel('Variance %') // (optional) render a vertical axis lable left of the y axis
+            //#### Labels and  Titles
+            //Labels are displaed on the chart for each bubble. Titles displayed on mouseover.
+            .renderLabel(true) // (optional) whether chart should render labels, :default = true
+            .label(function (p) {
+                return p.key;
+            })
+            .renderTitle(true) // (optional) whether chart should render titles, :default = false
+            .title(function (p) {
+                return [p.key,
+                       "Total value: $" + numberFormat(Math.abs(p.value.absGain)) + "K",
+                       "Variance to mean in percentage: " + numberFormat(p.value.yAxisVariancePercentage) + "%",
+                       "Fluctuation percentage: " + numberFormat(p.value.xAxisVariancePercentage) + "%"]
+                       .join("\n");
+            })
+            //#### Customize Axis
+            //Set a custom tick format. Note `.yAxis()` returns an axis object, so any additional method chaining applies to the axis, not the chart.
+            .yAxis().tickFormat(function (v) {
+                return v + "%";
+            });
+
+            // #### Pie/Donut Chart
+            // Create a pie chart and use the given css selector as anchor. You can also specify
+            // an optional chart group for this chart to be scoped within. When a chart belongs
+            // to a specific group then any interaction with such chart will only trigger redraw
+            // on other charts within the same chart group.
+
+            gainOrLossChart
+            .width(180) // (optional) define chart width, :default = 200
+            .height(180) // (optional) define chart height, :default = 200
+            .radius(80) // define pie radius
+            .dimension(gainOrLoss) // set dimension
+            .group(gainOrLossGroup) // set group
+            // (optional) by default pie chart will use group.key as it's label
+            // but you can overwrite it with a closure 
+            .label(function (d) {
+                if (gainOrLossChart.hasFilter() && !gainOrLossChart.hasFilter(d.key))
+                    return d.key + "(0%)";
+                return d.key + "(" + Math.floor(d.value / all.value() * 100) + "%)";
+            });
+            pieChart.width(180)
+            .height(180)
+            .radius(80)
+            // .innerRadius(30)
+            .dimension(pieGroupDimension)
+            .group(pieGroup);
+
+            pieChartVendor.width(180)
+        .height(180)
+        .radius(80)
+        .innerRadius(40)
+        .dimension(pieChartVendorGroupDimention)
+        .group(pieVendorGroup);
+
+            pieChartCompanyCode.width(180)
+        .height(180)
+        .radius(80)
+            //  .innerRadius(30)
+        .dimension(pieChartCompanyGroupDimention)
+        .group(pieCompanyGroup);
+
+            pieChartPurchaseGrp.width(180)
+        .height(180)
+        .radius(80)
+            //  .innerRadius(30)
+        .dimension(pieChartPurchaseGroupDimention)
+        .group(piePurchaseGroup);
+
+            pieChartPlant.width(180)
+        .height(180)
+        .radius(80)
+            //  .innerRadius(30)
+        .dimension(pieChartPlantDimention)
+        .group(piePlantGroup);
+
+
+            pieChartPurchaseorg.width(180)
+        .height(180)
+        .radius(80)
+            //  .innerRadius(30)
+        .dimension(pieChartPurchaseorgDimention)
+        .group(piePurchaseOrgGroup);
+
+
+            //#### Row Chart
+            horzBarChart.width(180)
+            .height(480)
+            .margins({ top: 20, left: 10, right: 10, bottom: 20 })
+            .group(horzBarGrp)
+            .dimension(horzBarDimension)
+            // assign colors to each value in the x scale domain
+            .ordinalColors(['#3182bd', '#6baed6', '#9e5ae1', '#c64bef', '#da8aab'])
+            .label(function (d) {
+                return d.key; //.split(".")[1];
+            })
+            // title sets the row text
+            .title(function (d) {
+                return d.key; //d.value;
+            })
+            .elasticX(true)
+            .xAxis().ticks(4);
+
+            //#### Bar Chart
+            // Create a bar chart and use the given css selector as anchor. You can also specify
+            // an optional chart group for this chart to be scoped within. When a chart belongs
+            // to a specific group then any interaction with such chart will only trigger redraw
+            // on other charts within the same chart group.
+            // dc.barChart("#volume-month-chart") 
+            fluctuationChart.width(350)
+            .height(180)
+            .margins({ top: 10, right: 50, bottom: 30, left: 40 })
+            .dimension(fluctuation)
+            .group(fluctuationGroup)
+            .elasticY(true)
+            // (optional) whether bar should be center to its x value. Not needed for ordinal chart, :default=false
+            .centerBar(true)
+            // (optional) set gap between bars manually in px, :default=2
+            .gap(1)
+            // (optional) set filter brush rounding
+            .round(dc.round.floor)
+            .alwaysUseRounding(true)
+            .x(d3.scale.linear().domain([-25, 25]))
+            .renderHorizontalGridLines(true)
+            // customize the filter displayed in the control span
+            .filterPrinter(function (filters) {
+                var filter = filters[0], s = "";
+                s += numberFormat(filter[0]) + "% -> " + numberFormat(filter[1]) + "%";
+                return s;
+            });
+
+            // Customize axis
+            //fluctuationChart.xAxis().tickFormat(
+            //    function (v) { return v + "%"; });
+            fluctuationChart.yAxis().ticks(5);
+
+            //#### Stacked Area Chart
+            //Specify an area chart, by using a line chart with `.renderArea(true)`
+            timelineAreaChart
+            .renderArea(true)
+            .width(900)
+            .height(150)
+            .transitionDuration(1000)
+            .margins({ top: 30, right: 50, bottom: 25, left: 40 })
+            .dimension(timelineDimension)
+            .mouseZoomable(true)
+            // Specify a range chart to link the brush extent of the range with the zoom focue of the current chart.
+            .rangeChart(timelineChart)
+            .x(d3.time.scale().domain([new Date(2006, 0, 1), new Date(2012, 11, 31)]))
+            .round(d3.time.month.round)
+            .xUnits(d3.time.months)
+            .elasticY(true)
+            .renderHorizontalGridLines(true)
+            .legend(dc.legend().x(800).y(10).itemHeight(13).gap(5))
+            .brushOn(false)
+            // Add the base layer of the stack with group. The second parameter specifies a series name for use in the legend
+            // The `.valueAccessor` will be used for the base layer
+            .group(timelineAreaGroup, "Vendor Count")
+            .valueAccessor(function (d) {
+                return d.value.total;
+            })
+            // stack additional layers with `.stack`. The first paramenter is a new group.
+            // The second parameter is the series name. The third is a value accessor.
+            .stack(timelineSecondGroup, "Material Count", function (d) {
+                return d.value;
+            })
+            // title can be called by any stack layer.
+            .title(function (d) {
+                var value = d.value.avg ? d.value.avg : d.value;
+                if (isNaN(value)) value = 0;
+                return dateFormat(d.key) + "\n" + numberFormat(value);
+            });
+
+            timelineChart.width(900)
+            .height(40)
+            .margins({ top: 0, right: 50, bottom: 20, left: 40 })
+            .dimension(timelineDimension)
+            .group(timelineGroup)
+            .centerBar(true)
+            .gap(1)
+            .x(d3.time.scale().domain([new Date(2006, 0, 1), new Date(2012, 11, 31)]))
+            .round(d3.time.month.round)
+            .alwaysUseRounding(true)
+            .xUnits(d3.time.months);
+
+            dc.dataCount(".dc-data-count")
+            .dimension(ndx)
+            .group(all);
+
+
+            dc.dataTable(".dc-data-table")
+            .dimension(dataTableDimension)
+            // data table does not use crossfilter group but rather a closure
+            // as a grouping function
+            .group(function (d) {
+                var format = d3.format("02d");
+                return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
+            })
+            .size(50) // (optional) max number of records to be shown, :default = 25
+            // dynamic columns creation using an array of closures
+            .columns([
+                function (d) {
+                    return d.date;
+                },
+                function (d) {
+                    return numberFormat(d.plantgroup);
+                },
+                function (d) {
+                    return '<a href="">' + d.vendor + '</a>';
+                },
+                function (d) {
+                    return d.materialid;
+                },
+                function (d) {
+                    return d.grossordervalue;
+                }
+            ])
+            // (optional) sort using the given field, :default = function(d){return d;}
+            .sortBy(function (d) {
+                return d.dd;
+            })
+            // (optional) sort order, :default ascending
+            .order(d3.ascending)
+            // (optional) custom renderlet to post-process chart using D3
+            .renderlet(function (table) {
+                table.selectAll(".dc-table-group").classed("info", true);
+            });
+
+
+            dc.renderAll();
+
+        });
+    });
+    d3.selectAll("#version").text(dc.version);
+
+</script>
+
+
+			</div>
+			<!-- END MAIN CONTENT -->
+
+		</div>
+		<!-- END MAIN PANEL -->
+
+		<!-- SHORTCUT AREA : With large tiles (activated via clicking user name tag)
+		Note: These tiles are completely responsive,
+		you can add as many as you like
+		-->
+		<div id="shortcut">
+			<ul>
+				<li>
+					<a href="#inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="#calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+				</li>
+				<li>
+					<a href="#gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+				</li>
+				<li>
+					<a href="#invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+				</li>
+				<li>
+					<a href="#gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+				</li>
+				<li>
+					<a href="javascript:void(0);" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+				</li>
+			</ul>
+		</div>
+		<!-- END SHORTCUT AREA -->
+
+		<!--================================================== -->
+
+		<!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+		<script data-pace-options='{ "restartOnRequestAfter": true }' src="js/plugin/pace/pace.min.js"></script>
+
+		<!-- Link to Google CDN's jQuery + jQueryUI; fall back to local -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script>
+			if (!window.jQuery) {
+				document.write('<script src="js/libs/jquery-2.0.2.min.js"><\/script>');
+			}
+		</script>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script>
+			if (!window.jQuery.ui) {
+				document.write('<script src="js/libs/jquery-ui-1.10.3.min.js"><\/script>');
+			}
+		</script>
+
+		<!-- JS TOUCH : include this plugin for mobile drag / drop touch events
+		<script src="js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script> -->
+
+		<!-- BOOTSTRAP JS -->
+		<script src="js/bootstrap/bootstrap.min.js"></script>
+
+		<!-- CUSTOM NOTIFICATION -->
+		<script src="js/notification/SmartNotification.min.js"></script>
+
+		<!-- JARVIS WIDGETS -->
+		<script src="js/smartwidgets/jarvis.widget.min.js"></script>
+
+		<!-- EASY PIE CHARTS -->
+		<script src="js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+
+		<!-- SPARKLINES -->
+		<script src="js/plugin/sparkline/jquery.sparkline.min.js"></script>
+
+		<!-- JQUERY VALIDATE -->
+		<script src="js/plugin/jquery-validate/jquery.validate.min.js"></script>
+
+		<!-- JQUERY MASKED INPUT -->
+		<script src="js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+
+		<!-- JQUERY SELECT2 INPUT -->
+		<script src="js/plugin/select2/select2.min.js"></script>
+
+		<!-- JQUERY UI + Bootstrap Slider -->
+		<script src="js/plugin/bootstrap-slider/bootstrap-slider.min.js"></script>
+
+		<!-- browser msie issue fix -->
+		<script src="js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+
+		<!-- SmartClick: For mobile devices -->
+		<script src="js/plugin/smartclick/smartclick.js"></script>
+
+		<!--[if IE 7]>
+
+		<h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+		<![endif]-->
+
+		<!-- Demo purpose only -->
+		<script src="js/demo.js"></script>
+
+		<!-- MAIN APP JS FILE -->
+		<script src="js/app.js"></script>
+
+		<!-- PAGE RELATED PLUGIN(S) 
+		<script src="..."></script>-->
+
+		
+
+		<script type="text/javascript">
+		
+		// DO NOT REMOVE : GLOBAL FUNCTIONS!
+		
+		$(document).ready(function() {
+			
+			pageSetUp();
+			
+			
+	
+			
+		
+		
+		})
+
+		</script>
+
+		<!-- Your GOOGLE ANALYTICS CODE Below -->
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+				_gaq.push(['_trackPageview']);
+			
+			(function() {
+				var ga = document.createElement('script');
+				ga.type = 'text/javascript';
+				ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(ga, s);
+			})();
+
+		</script>
+
+	</body>
+
+</html>

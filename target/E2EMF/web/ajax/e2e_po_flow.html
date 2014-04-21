@@ -1,0 +1,471 @@
+<script src="js/custom_sankey.js"></script>
+<script src="js/raphael.js"></script>
+<div class="row">
+	
+</div>
+
+<!-- widget grid -->
+<section id="widget-grid" class="">
+
+	<!-- row -->
+	<div class="row">
+		
+		<!-- NEW WIDGET START -->
+		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget" id="wid-id-24" data-widget-editbutton="false" data-widget-deletebutton="false">
+				<!-- widget options:
+					usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+					
+					data-widget-colorbutton="false"	
+					data-widget-editbutton="false"
+					data-widget-togglebutton="false"
+					data-widget-deletebutton="false"
+					data-widget-fullscreenbutton="false"
+					data-widget-custombutton="false"
+					data-widget-collapsed="true" 
+					data-widget-sortable="false"
+					
+				-->
+				 <header>
+     <span class="widget-icon"><i class="fa fa-fw fa-bar-chart-o">
+     </i></span>
+     <h2>Purchase Orders Flow</h2>
+     <span id="filter" class="pull-right" data-toggle="modal"
+      data-target="#myModal"><i class="fa fa-filter">|
+       Filter</i></span>
+    </header>
+
+				<!-- widget div-->
+				<div>
+					
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+						
+					</div>
+					<!-- end widget edit box -->
+					
+					<!-- widget content -->
+					<div class="widget-body no-padding">
+						
+									<div class="panel-body p-top-sm">
+									<svg width="1053" height="115">
+ 
+ <g>
+  <title></title>
+  <rect id="svg_1" height="42" width="200" y="17" x="20" stroke-width="2" stroke="#0C3644" fill="#1A6F8B" />
+  <rect id="svg_5" height="42" width="200" y="17" x="236" stroke-width="2" stroke="#07330D" fill="#0F691B"/>
+  <rect id="svg_7" height="42" width="200" y="17" x="452" stroke-width="2" stroke="#242121" fill="#4B4545"/>
+  <rect id="svg_8" height="42" width="200" y="17" x="668" stroke-width="2" stroke="#751919" fill="#F03434"/>
+  <rect id="svg_8" height="42" width="200" y="17" x="885" stroke-width="2" stroke="#4C2B0D" fill="#9D591B"/>
+  <line id="svg_9" y2="40" x2="221" y1="40" x1="236" stroke-linecap="null" stroke-linejoin="null" stroke="#000" fill="none"/>
+  <line id="svg_10" y2="40" x2="437" y1="40" x1="452" stroke-linecap="null" stroke-linejoin="null" stroke="#000" fill="none"/>
+  <line id="svg_11" y2="40" x2="652" y1="40" x1="668" stroke-linecap="null" stroke-linejoin="null" stroke="#000" fill="none"/>
+  <line id="svg_11" y2="40" x2="868" y1="40" x1="885" stroke-linecap="null" stroke-linejoin="null" stroke="#000" fill="none"/>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="45" x="146" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#ffffff">Company Code</text>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="45" x="456" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#ffffff">Plants</text>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="45" x="762" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#ffffff">Purchase Orgs</text>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="45" x="1066" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#ffffff">Document Type</text>
+<text transform="matrix(0.7062084262525503,0,0,1,14.116408837620831,0) " xml:space="preserve" text-anchor="middle"  font-size="16" id="svg_12" y="45" x="1356" stroke-linecap="null" stroke-linejoin="null" stroke-width="0" stroke="#bab8b8" fill="#ffffff">Payment Terms</text>
+ </g>
+ </g>
+</svg>
+                                      
+                                <div id="loading"></div>
+							</div>
+						<!--sankey Diagram begins Here-->
+						 <div id='sankey' class="flowdiagram">
+						       &nbsp;
+						</div> 
+					</div>
+					<!-- end widget content -->
+					
+					<br style="clear: both;">
+					<div class="alert alert-info fade in">
+						<button data-dismiss="alert" class="close">x</button>
+						<i class="fa-fw fa fa-info"></i> <strong>Info!</strong>
+						&nbsp;Only top 10 Purchase Orgs are displayed. Use the Filter icon for further filtering.
+					</div>
+					
+				</div>
+				<!-- end widget div -->
+				
+			</div>
+			<!-- end widget -->
+
+			<!-- Widget ID (each widget will need unique ID)-->
+			
+			<!-- end widget -->
+
+		</article>
+		<!-- WIDGET END -->
+		
+	</div>
+
+	<!-- end row -->
+
+	<!-- row -->
+
+    <div class="row">
+
+		<!-- NEW WIDGET START -->
+		<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+			<!-- Widget ID (each widget will need unique ID)-->
+			<div class="jarviswidget jarviswidget-color-light" id="wid-id-3" data-widget-editbutton="false" data-widget-deletebutton="false">
+				<!-- widget options:
+				usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+
+				data-widget-colorbutton="false"
+				data-widget-editbutton="false"
+				data-widget-togglebutton="false"
+				data-widget-deletebutton="false"
+				data-widget-fullscreenbutton="false"
+				data-widget-custombutton="false"
+				data-widget-collapsed="true"
+				data-widget-sortable="false"
+
+				-->
+				<header>
+					<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+					<h2>Purchase Order List View </h2>
+
+				</header>
+
+				<!-- widget div-->
+				<div>
+
+					<!-- widget edit box -->
+					<div class="jarviswidget-editbox">
+						<!-- This area used as dropdown edit box -->
+
+					</div>
+					<!-- end widget edit box -->
+
+					<!-- widget content -->
+					<div class="widget-body no-padding" style="display: none;margin-top: 40px;" id="leveltwo">
+						
+						<table id="datatable_tabletools" class="table table-striped table-hover">
+							<thead>
+								<tr>
+                                    <th class="ui-state-default">purchdoc</th>
+                                    <th class="ui-state-default">vendor</th>
+                                    <th class="ui-state-default">pgr</th>
+                                    <th class="ui-state-default">crcy</th>
+                                    <th class="ui-state-default">oun</th>
+                                    <th class="ui-state-default">netvalue</th>
+                                    <th class="ui-state-default">cocd</th>
+                                    <th class="ui-state-default">quantity</th>
+                                    <th class="ui-state-default">porg</th>
+                                    <th class="ui-state-default">doctype</th>
+                                    <th class="ui-state-default">plnt</th>
+                                    <th class="ui-state-default">payt</th>
+                                </tr>
+							</thead>
+							<tbody>
+								
+							</tbody>
+						</table>
+                        <br id="btm">
+         
+					
+					</div>
+					<!-- end widget content -->
+<div class="alert alert-info fade in">
+						<button data-dismiss="alert" class="close">x</button>
+						<i class="fa-fw fa fa-info"></i> <strong>Info!</strong>
+						&nbsp; Drill down table displays only top 100 records. Use the export option to download all matching records.
+					</div>
+				</div>
+				<!-- end widget div -->
+
+			</div>
+			<!-- end widget -->
+
+		</article>
+		<!-- WIDGET END -->
+
+	</div>
+
+	<!-- end row -->
+	
+</section>
+<!-- end widget grid -->
+<script src="js/sankey.js"></script>
+<script src="js/spin.js"></script>
+<script src="js/tipsy.js"></script>
+
+<script>
+$(document).ready(function(){
+	var margin = {top: 5, right: 0, bottom: 6, left: 110},
+	width = 980 - margin.left - margin.right,
+	        height = 500 - margin.top - margin.bottom;
+
+var formatNumber = d3.format(",.0f"),
+format = function(d) {
+    return "$" + formatNumber(d);
+},
+        	        color = d3.scale.category20();
+        	        
+	var callBackSuccessgetE2emfpo = function(energy){
+		 if (energy.nodes.length == 0)
+			  $("#results").html('<div class="alert alert-danger fade in"><a class="close" data-dismiss="alert" href="#">×</a><h4 class="alert-heading"><i class="fa fa-exclamation-triangle"></i>&nbsp;OOPS!</h4><p class="text-align-left">The Filtered Data Has No Results Found, Try Again.</p></div>');
+
+						$("#sankey").html("");
+
+									
+			        	var svg = d3.select("#sankey").append("svg")
+				        .attr("width", width + margin.left + margin.right)
+				        .attr("height", height + margin.top + margin.bottom)
+				        .append("g")
+				        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+				var sankey = d3.sankey()
+				        .nodeWidth(35)
+				        .nodePadding(10)
+				        .size([width, height]).fullwidth(width).totalstacks(5);
+
+				var path = sankey.link();
+			            	console.log(energy);
+
+			            	var nodeMap = {};
+			           	 energy.nodes.forEach(function(x) { nodeMap[x.name] = x; });
+			           	 energy.links = energy.links.map(function(x) {
+			           	      return {
+			           	        source: nodeMap[x.source],
+			           	        target: nodeMap[x.target],
+			           	        value: x.value,
+			           	        color: x.color,
+			           	        text: x.text,
+			           	        sourcename: x.sourcename,
+			           	        targetname: x.targetname
+			           	      };
+			           	    });
+			            	
+			                sankey
+			                        .nodes(energy.nodes)
+			                        .links(energy.links)
+			                        .layout(32)
+			                        ;
+
+			                var link = svg.append("g").selectAll(".link")
+			                        .data(energy.links)
+			                        .enter().append("path")
+			                        .attr("class", "link")
+			                        .attr("d", path)
+			                        .on("click", function(d) {
+			                        	var keyword = ((parseInt(d.source.stack)-1) + " " + d.source.name + "," + (parseInt(d.target.stack)-1) + " " + d.target.name);
+										sessionStorage.setItem("mykeyword", keyword);
+			                         	runDataTables();
+//			                             alert(d.source.name + " → " + d.target.name + "\n" + format(d.value));
+			                        })
+			                        .style("stroke-width", function(d) {
+
+			                            return Math.max(1, d.dy);
+			                        })
+			                        .style("stroke", function(d) {
+
+			                            return d.color;
+			                        });
+
+			                link.append("title")
+			                        .text(function(d) {
+			                        	return d.sourcename + ' to ' +d.targetname + ' - ' + d.text + ' - ' + format(d.value);
+			                        });
+
+			                var node = svg.append("g").selectAll(".node")
+			                        .data(energy.nodes)
+			                        .enter().append("g")
+			                        .attr("class", "node")
+			                        .attr("transform", function(d) {
+			                         return "translate(" + d.x + "," + d.y + ")";
+			                        })
+			                        .on("click", function(d) {
+			                        	var keyword = (parseInt(d.stack)-1) + " " + d.name;
+										sessionStorage.setItem("mykeyword", keyword);
+			                         	runDataTables();
+//			                             console.log(d);
+//			                             alert(d.name + "\n" + format(d.value));
+			                        });
+			                       /*  .call(d3.behavior.drag()
+			                                .origin(function(d) {
+			                                    return d;
+			                                })
+			                                .on("dragstart", function() {
+			                                    this.parentNode.appendChild(this);
+			                                })
+			                                .on("drag", dragmove)); */
+
+			                node.append("rect")
+			                        .attr("height", function(d) {
+			                            return d.dy;
+			                        })
+			                        .attr("width", sankey.nodeWidth())
+			                        .style("fill", function(d) {
+			                            return d.color;
+			                        })
+			                        .style("stroke", function(d) {
+			                            return d3.rgb(d.color).darker(2);
+			                        })
+			                        .append("title")
+			                        .text(function(d) {
+			                        	return d.text + ' - ' + format(d.value);
+			                        });
+
+			                node.append("text")
+			                        .attr("x", -6)
+			                        .attr("y", function(d) {
+			                            return d.dy / 2;
+			                        })
+			                        .attr("dy", ".35em")
+			                        .attr("text-anchor", "end")
+			                        .attr("transform", null)
+			                        .text(function(d) {
+			                            return d.name;
+			                        })
+			                        .filter(function(d) {
+			                            return d.x < width / 2;
+			                        })
+			                        .attr("x", 6 + sankey.nodeWidth())
+			                        .attr("text-anchor", "start");
+
+			                     $('rect').tipsy({ 
+			                     gravity: 'w', 
+			                     html: true, 
+			                     title: function() {
+			                     var nodename = $(this).text();
+			                     return nodename; 
+			        }
+			      });
+
+			                     $('path').tipsy({ 
+			                     gravity: 'z', 
+			                     html: true, 
+			                     title: function() {
+			                     var pathflow = $(this).text();
+			                     return pathflow; 
+			        }
+			      });
+			                $('#loading').hide();
+	}
+
+	var callBackfailuregetE2emfpo = function(response){
+		alert("ok1");
+	}
+	
+callAjaxService("getE2emfpo",callBackSuccessgetE2emfpo, callBackfailuregetE2emfpo);
+	
+
+//// Loading spinner Code Start /////////
+var opts = {
+		  lines: 15, // The number of lines to draw
+		  length: 8, // The length of each line
+		  width: 5, // The line thickness
+		  radius: 12, // The radius of the inner circle
+		  corners: 0.7, // Corner roundness (0..1)
+		  rotate: 0, // The rotation offset
+		  direction: 1, // 1: clockwise, -1: counterclockwise
+		  color: '#000', // #rgb or #rrggbb or array of colors
+		  speed: 1, // Rounds per second
+		  trail: 60, // Afterglow percentage
+		  shadow: false, // Whether to render a shadow
+		  hwaccel: false, // Whether to use hardware acceleration
+		  className: 'spinner', // The CSS class to assign to the spinner
+		  zIndex: 2e9, // The z-index (defaults to 2000000000)
+		  top: '0', // Top position relative to parent in px
+		  left: '380' // Left position relative to parent in px
+		};
+var target = document.getElementById('loading');
+var spinner = new Spinner(opts).spin(target);
+////Loading spinner Code End /////////
+
+
+});
+
+// DO NOT REMOVE : GLOBAL FUNCTIONS!
+	pageSetUp();
+	
+    	loadDataTableScripts();
+	function loadDataTableScripts() {
+
+		loadScript("js/plugin/datatables/jquery.dataTables-cust.min.js", dt_2);
+
+		function dt_2() {
+			loadScript("js/plugin/datatables/ColReorder.min.js", dt_3);
+		}
+
+		function dt_3() {
+			loadScript("js/plugin/datatables/FixedColumns.min.js", dt_4);
+		}
+
+		function dt_4() {
+			loadScript("js/plugin/datatables/ColVis.min.js", dt_5);
+		}
+
+		function dt_5() {
+			loadScript("js/plugin/datatables/ZeroClipboard.js", dt_6);
+		}
+
+		function dt_6() {
+			loadScript("js/plugin/datatables/media/js/TableTools.min.js", dt_7);
+		}
+
+		function dt_7() {
+			loadScript("js/plugin/datatables/DT_bootstrap.js");
+		}
+
+	}
+
+	function runDataTables() {
+
+		 var ticket = sessionStorage.getItem("mykeyword");  
+	     $('#leveltwo').show();
+	     $(window).scrollTop($('#btm').offset().top);     
+	      var gaiSelected = [];
+	      $('#datatable_tabletools').dataTable().fnClearTable();
+	     $('#datatable_tabletools').dataTable({
+	               "sDom": "<'dt-top-row'Tlf>r<'dt-wrapper't><'dt-row dt-bottom-row'<'row'<'col-sm-6'i><'col-sm-6 text-right'p>>",
+	               "bProcessing": true,               
+	               "bLengthChange": true,
+	               "bFilter": true,
+	               "bSort": true,
+	               "bInfo": true,
+	               "bJQueryUI": false,
+	               "oTableTools": {
+	                        "aButtons": [{
+	                            "sExtends": "collection",
+	                            "sButtonText": 'Export <span class="caret" />',
+	                            "aButtons": ["csv", "pdf"]
+	                        }],
+	               "sSwfPath": "js/plugin/datatables/media/swf/copy_csv_xls_pdf.swf"
+	                    },
+	                     
+	                "sAjaxSource": "/E2EMF/rest/searchLndData/searchSummaryDataNode/"+ ticket,
+	               
+	                "sAjaxDataProp": "MainKey",
+	                "bDestroy": true,
+	                "sProcessing": "",
+	                "aoColumns": [
+	                                                                   { "mDataProp": "ebeln" },
+	                                                                   { "mDataProp": "lifnr" },
+	                                                                   { "mDataProp": "ekgrp" },
+	                                                                   { "mDataProp": "wkurs" },
+	                                                                   { "mDataProp": "meins" },
+	                                                                   { "mDataProp": "netwr" },
+	                                                                   { "mDataProp": "bukrs" },
+	                                                                   { "mDataProp": "menge" },
+	                                                                   { "mDataProp": "ekorg" },
+	                                                                   { "mDataProp": "bsart" },
+	                                                                   { "mDataProp": "werks" },
+	                                                                   { "mDataProp": "zterm" }
+	                                                               ]
+	                });
+	       
+			
+			/* END TABLE TOOLS */
+
+		}
+	
+  </script>

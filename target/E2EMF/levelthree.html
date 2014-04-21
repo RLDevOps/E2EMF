@@ -1,0 +1,233 @@
+ <!DOCTYPE html>
+
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>BtB | Detailed View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">	
+	<link href="css/font-awesome.min.css" rel="stylesheet">	
+	<link href="css/custom.css" rel="stylesheet">
+    <link href="css/custom.min.css" rel="stylesheet">
+	<script src="js/latestjquery.js"></script>
+<script>   
+   // window.onload = checkAuthentication;
+</script>   	
+</head>
+
+  <body onload="displayResult()">
+	<!-- Overlay Div -->
+	<div id="overlay" style="display: none;">
+		<div class="overlay-inner">
+			<div id="followingBallsG">
+				<div id="followingBallsG_1" class="followingBallsG">
+				</div>
+				<div id="followingBallsG_2" class="followingBallsG">
+				</div>
+				<div id="followingBallsG_3" class="followingBallsG">
+				</div>
+				<div id="followingBallsG_4" class="followingBallsG">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="wrapper">
+		<div id="top-nav" class="fixed skin-1">
+			<button type="button" class="navbar-toggle pull-left" id="sidebarToggle">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<ul class="nav-notification clearfix">
+				<li class="profile dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<strong>Vishal Prasad</strong>
+						<span><i class="fa fa-chevron-down"></i></span>
+					</a>
+					<ul class="dropdown-menu">
+						
+						<li><a tabindex="-1" href="profile.html" class="main-link"><i class="fa fa-edit fa-lg"></i> Edit profile</a></li>
+						
+						<li><a tabindex="-1" href="#" class="theme-setting"><i class="fa fa-cog fa-lg"></i> Setting</a></li>
+						<li class="divider"></li>
+						<li><a tabindex="-1" href="login.html" class="main-link"><i class="fa fa-lock fa-lg"></i> Log out</a></li>
+					</ul>
+				</li>
+			</ul>
+            <span class="heading">End To End Material Flow</span>
+		</div><!-- /top-nav-->
+		
+		<aside class="fixed skin-1">
+			<div class="brand">
+				<span>BtB</span>
+				<span class="text-toggle"></span>
+			</div><!-- /brand -->					
+			<div class="sidebar-inner">
+				<div class="size-toggle">
+					<a class="btn btn-sm" id="sizeToggle">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					
+				</div><!-- /size-toggle -->	
+				<!-- /user-block -->
+				
+				<div class="main-menu">
+					<ul>
+                        <li class="">
+							<a href="home.html">
+								<span class="menu-icon">
+									<i class="fa fa-home fa-lg"></i> 
+								</span>
+								<span class="text">
+									Home
+								</span>
+							</a>
+							
+						</li>
+
+                        <li class="">
+							<a href="search.html">
+								<span class="menu-icon">
+									<i class="fa fa-search fa-lg"></i> 
+								</span>
+								<span class="text">
+								  Search Content
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+							
+						</li>
+
+						<li >
+							<a href="po-profyling.html">
+								<span class="menu-icon">
+									<i class="fa fa-desktop fa-lg"></i> 
+								</span>
+								<span class="text">
+									PO-Profiling
+								</span>
+								<span class="menu-hover"></span>
+							</a>
+						</li>
+						
+						
+						
+						
+
+					</ul>
+					
+					
+				</div><!-- /main-menu -->
+			</div><!-- /sidebar-inner -->
+		</aside>
+
+		<div id="main-container">
+			<div id="breadcrumb">
+				<ul class="breadcrumb">
+					  <li><i class="fa fa-home"></i><a href="home.html"> Home</a></li>
+					 <li class="active">Detailed View</li>	 
+				</ul>
+			</div><!-- /breadcrumb-->
+			
+			<!-- /grey-container -->
+			
+			<div class="padding-md" style="padding-top: 10px!important;">
+                <div class="row">
+               
+        <div class="well col-xs-10 col-sm-10 col-md-12">
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/jj2.png" alt="logo" style="border-radius: 2px;">
+                 </div>
+                <div class="col-md-6">
+                    <h3>Purchase Order No:115703</h3>
+                </div>
+                </div>   
+                </span>
+                
+                <br>
+                <div id="example" ></div>
+            </div>
+        </div>
+    </div>
+			</div><!-- /.padding-md -->
+		</div><!-- /main-container -->
+		<!-- Footer
+		================================================== -->
+		<footer>
+			<div class="row">
+				<div class="col-sm-6">
+					<span class="footer-brand">
+						<strong class="text-danger">Back To Basics</strong>
+					</span>
+					<p class="no-margin">
+						© 2013 <strong>johnson & johnson</strong>. ALL Rights Reserved. 
+					</p>
+				</div><!-- /.col -->
+			</div><!-- /.row-->
+		</footer>
+
+	</div><!-- /wrapper -->
+
+	<a href="" id="scroll-to-top" class="hidden-print"><i class="fa fa-chevron-up"></i></a>
+	
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->	
+	<!-- Jquery -->
+	<!-- Bootstrap -->
+<script>
+    function loadXMLDoc(dname) {
+        if (window.XMLHttpRequest) {
+            xhttp = new XMLHttpRequest();
+        }
+        else {
+            xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("GET", dname, false);
+        xhttp.send("");
+        return xhttp.responseXML;
+    }
+
+    function displayResult() {
+        xml = loadXMLDoc("level3.xml");
+        xsl = loadXMLDoc("l3.xsl");
+        // code for IE
+        if (window.ActiveXObject) {
+            ex = xml.transformNode(xsl);
+            document.getElementById("example").innerHTML = ex;
+        }
+        // code for Mozilla, Firefox, Opera, etc.
+        else if (document.implementation && document.implementation.createDocument) {
+            xsltProcessor = new XSLTProcessor();
+            xsltProcessor.importStylesheet(xsl);
+            resultDocument = xsltProcessor.transformToFragment(xml, document);
+            document.getElementById("example").appendChild(resultDocument);
+        }
+    }
+
+
+</script>
+ <script src="js/bootstrap.min.js"></script>
+	<!-- Cookie -->
+	<script src="js/jquery.cookie.js"></script>
+	<script src="js/endless.js"></script>
+<script>
+
+</script>
+
+
+  
+<div id="cboxOverlay" style="display: none;"></div>
+      
+<!-- /.modal -->
+  </body></html>

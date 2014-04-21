@@ -1,0 +1,664 @@
+<style>
+#timeline-chart g.y {
+	display: none;
+}
+</style>
+<script src="js/spin.js"></script>
+<!-- widget grid -->
+<section id="widget-grid" class="">
+	<!-- row -->
+	<div class="row">
+		<!-- NEW WIDGET START -->
+		<article class="col-xs-12 col-sm-6 col-md-12 col-lg-12">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="jarviswidget jarviswidget-color-light " id="wid-id-1"
+						data-widget-editbutton="false" data-widget-colorbutton="true"
+						data-widget-deletebutton="false"
+						data-widget-fullscreenbutton="false" data-widget-sortable="false">
+						<!-- widget options:
+								usage: <div class="jarviswidget" id="wid-id-0" data-widget-editbutton="false">
+								
+								data-widget-colorbutton="false"	
+								data-widget-editbutton="false"
+								data-widget-togglebutton="false"
+								data-widget-deletebutton="false"
+								data-widget-fullscreenbutton="false"
+								data-widget-custombutton="false"
+								data-widget-collapsed="true" 
+								data-widget-sortable="false"
+								
+							-->
+						<header>
+							<span class="widget-icon"><i
+								class="fa fa-fw fa-bar-chart-o"> </i></span>
+							<h2>SO Types</h2>
+						</header>
+
+						<!-- widget div-->
+						<div>
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+							</div>
+							<!-- end widget edit box -->
+
+							<!-- widget content -->
+							<div class="widget-body">
+								<div id="row-chart">
+									<a class="reset"
+										href="javascript:horzBarChart.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<!-- end widget content -->
+						</div>
+					</div>
+					<!-- end widget -->
+				</div>
+				<div class="col-md-9">
+					<!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget jarviswidget-color-light " id="wid-id-2"
+						data-widget-editbutton="false" data-widget-colorbutton="true"
+						data-widget-deletebutton="false"
+						data-widget-fullscreenbutton="false">
+						<header>
+							<span class="widget-icon"><i
+								class="fa fa-fw fa-bar-chart-o"> </i></span>
+							<h2>SO Analytics by Dimensions</h2>
+						</header>
+
+						<!-- widget div-->
+						<div
+							style="background: url('img/main-back.png') repeat scroll 0 0 #FFFFFF">
+
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+							</div>
+
+							<!-- widget content -->
+							<div class="widget-body">
+								<div id="pie-chart-CompanyCode" class="col-md-3" align="center">
+									<strong>Company Code</strong> <a class="reset"
+										href="javascript:pieChartCompanyCode.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+
+								<div id="pie-chart-Division" class="col-md-3" align="center">
+									<strong>Division</strong> <a class="reset"
+										href="javascript:pieChartDivision.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+
+								<div id="pie-chart-plant" class="col-md-3" align="center">
+									<strong>Plant</strong> <a class="reset"
+										href="javascript:pieChartPlant.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+								
+								<div id="pie-chart-SalesOrg" class="col-md-3" align="center">
+									<strong>Sales Org</strong> <a class="reset"
+										href="javascript:pieChartSalesOrg.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+					<!-- end widget -->
+
+					<!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget jarviswidget-color-light " id="wid-id-3"
+						data-widget-editbutton="false" data-widget-colorbutton="true"
+						data-widget-deletebutton="false"
+						data-widget-fullscreenbutton="false">
+
+						<header>
+							<span class="widget-icon"><i
+								class="fa fa-fw fa-bar-chart-o"> </i> </span>
+							<h2>SO Analytics by Dimensions</h2>
+						</header>
+
+						<!-- widget div-->
+						<div style="background: url('img/main-back.png') repeat scroll 0 0 #FFFFFF">
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+							</div>
+							<!-- end widget edit box -->
+
+							<!-- widget content -->
+							<div class="widget-body">
+								<div id="pie-chart-MaterialType" class="col-md-3" align="center">
+									<strong>Material Type</strong> <a class="reset"
+										href="javascript:pieChartMaterialType.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+
+								<div id="pie-chart-MaterialGroup" class="col-md-3" align="center">
+									<strong>Material Group</strong> <a class="reset"
+										href="javascript:pieChartMaterialGroup.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+								<div id="pie-chart-Sales-Doc-Type" class="col-md-3" align="center">
+									<strong>Sales doc Type</strong> <a class="reset"
+										href="javascript:pieChartSOType.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+
+								
+
+								<div id="pie-chart-SalesGroup" class="col-md-3" align="center">
+									<strong>Sales Group</strong> <a class="reset"
+										href="javascript:pieChartSalesGroup.filterAll();dc.redrawAll();"
+										style="display: none;">reset</a>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<!-- end widget content -->
+
+						</div>
+						<!-- end widget div -->
+
+					</div>
+										<!-- Widget ID (each widget will need unique ID)-->
+					
+				</div>
+			</div>
+			<div id="loading" style="left: 40%; position: absolute; top: 200px;"></div>
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget jarviswidget-color-light " id="wid-id-4"
+						data-widget-editbutton="false" data-widget-colorbutton="true"
+						data-widget-deletebutton="false"
+						data-widget-fullscreenbutton="false">
+						<header>
+							<span class="widget-icon"> <i
+								class="fa fa-fw fa-bar-chart-o"> </i>
+							</span>
+							<h2>SO Count/Order Quantity by month</h2>
+						</header>
+
+						<!-- widget div-->
+						<div>
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+							</div>
+							<!-- end widget edit box -->
+
+							<!-- widget content -->
+							<div class="widget-body">
+								<div class="row">
+									<div id="timeline-area-chart">
+										<span class="reset" style="display: none;">range: <span
+											class="filter"></span></span> <a class="reset"
+											href="javascript:timelineAreaChart.filterAll();timelineChart.filterAll();dc.redrawAll();"
+											style="display: none;">reset</a>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div id="timeline-chart"></div>
+								</div>
+								<div class="row" style="width: 900px;">
+									<p class="muted pull-right">select a time range to zoom in</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<!-- Widget ID (each widget will need unique ID)-->
+					<div class="jarviswidget jarviswidget-color-light " id="wid-id-5"
+						data-widget-editbutton="false" data-widget-deletebutton="false"
+						data-widget-fullscreenbutton="false">
+						<header>
+							<span class="widget-icon"><i
+								class="fa fa-fw fa-bar-chart-o"> </i></span>
+							<h2>Detail view</h2>
+						</header>
+
+						<!-- widget div-->
+						<div>
+							<!-- widget edit box -->
+							<div class="jarviswidget-editbox">
+								<!-- This area used as dropdown edit box -->
+							</div>
+							<!-- end widget edit box -->
+
+							<!-- widget content -->
+							<div class="widget-body">
+								<div class="row" style="overflow-x: scroll;">
+									<div>
+										<div class="dc-data-count">
+											<span class="filter-count"></span> selected out of <span
+												class="total-count"></span> records | <a
+												href="javascript:dc.filterAll(); dc.renderAll();">Reset
+												All</a>
+										</div>
+									</div>
+									<table class="table table-hover dc-data-table">
+										<thead>
+											<tr class="header">
+												<th>Date</th>
+												<th>SO Count</th>
+												<th>Company Code</th>
+												<th>Division</th>
+												<th>Plant</th>
+												<th>Material Type</th>
+												<th>Material Group</th>
+												<th>Sales Type</th>
+												<th>Sales Org</th>
+												<th>Sales Group</th>
+												<th>Net Value</th>
+												<th>SO Type</th>
+												<th>Last Changed</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</div>
+</section>
+<!-- end widget grid -->
+
+<script type="text/javascript">
+	// DO NOT REMOVE : GLOBAL FUNCTIONS!
+	pageSetUp();
+
+	// PAGE RELATED SCRIPTS
+
+	// switch style change
+	$('input[name="checkbox-style"]').change(function() {
+		//alert($(this).val())
+		$this = $(this);
+
+		if ($this.attr('value') === "switch-1") {
+			$("#switch-1").show();
+			$("#switch-2").hide();
+		} else if ($this.attr('value') === "switch-2") {
+			$("#switch-1").hide();
+			$("#switch-2").show();
+		}
+
+	});
+
+	// tab - pills toggle
+	$('#show-tabs').click(function() {
+		$this = $(this);
+		if ($this.prop('checked')) {
+			$("#widget-tab-1").removeClass("nav-pills").addClass("nav-tabs");
+		} else {
+			$("#widget-tab-1").removeClass("nav-tabs").addClass("nav-pills");
+		}
+
+	});
+</script>
+
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+<script type="text/javascript" src="js/colorbrewer.js"></script>
+
+<script type="text/javascript">
+	$('#loading').show();
+	//# dc.js Getting Started and How-To Guide
+	'use strict';
+
+	// Pie charts
+	var pieChartCompanyCode = dc.pieChart("#pie-chart-CompanyCode");
+	var pieChartDivision = dc.pieChart("#pie-chart-Division");
+	var pieChartPlant = dc.pieChart("#pie-chart-plant");
+	var pieChartMaterialType = dc.pieChart("#pie-chart-MaterialType");
+	var pieChartMaterialGroup = dc.pieChart("#pie-chart-MaterialGroup");
+	//var pieChartMaterial = dc.pieChart("#pie-chart-Material");
+	var pieChartSalesDocType = dc.pieChart("#pie-chart-Sales-Doc-Type");
+	var pieChartSalesOrg = dc.pieChart("#pie-chart-SalesOrg");
+	var pieChartSalesGroup= dc.pieChart("#pie-chart-SalesGroup");
+	
+	var horzBarChart = dc.rowChart("#row-chart");
+	// var yearlyBubbleChart = dc.bubbleChart("#yearly-bubble-chart");
+	var timelineAreaChart = dc.lineChart("#timeline-area-chart");
+	var timelineChart = dc.barChart("#timeline-chart");
+
+	//callAjaxService("SOProfile",)
+	d3.csv("/E2EMF/rest/profiling/soprofile", function(data) {
+		$('#loading').hide();
+		/* since its a csv file we need to format the data a bit */
+		//var dateFormat = d3.time.format("%Y.%m.%d");
+		var dateFormat = d3.time.format("%m/%d/%Y");
+		var numberFormat = d3.format(".2f");
+		var numberFormat2 = d3.format(",.2f");
+		var numberFormat3 = d3.format("");
+		var flag = 1;
+
+		data.forEach(function(d) {
+			d.dd = dateFormat.parse(d.lastchangedon);
+			d.month =  d3.time.month(d.dd); // pre-calculate month for better performance
+			d.so_count = +d.so_count;
+			//d.orderquantity = +d.orderquantity;
+			//d.grossordervalue = +d.grossordervalue;
+			d.netvalue = +d.netvalue;
+		});
+
+		//### Create Crossfilter Dimensions and Groups
+		//See the [crossfilter API](https://github.com/square/crossfilter/wiki/API-Reference) for reference.
+		var ndx = crossfilter(data);
+
+		var all = ndx.groupAll();
+
+		 //dimension by full date
+		 var dataTableDimension = ndx.dimension(function(d) {
+			return d.dd;
+		});
+
+		// dimension by month
+		var timelineDimension = ndx.dimension(function(d) {
+			//console.debug(d.month);
+			return d.month;
+		});
+		// group by total volume within move, and scale down result
+ 		var timelineGroup = timelineDimension.group().reduceSum(function(d) {
+			return d.orderquantity
+		
+		});
+		// group by total movement within month
+		var timelineSecondGroup = timelineDimension.group().reduceSum(
+				function(d) {
+					return d.so_count;
+				}); 
+		var timelineAreaGroup = timelineDimension.group().reduce(
+				function(p, v) {
+					++p.count;
+					p.total += v.netprice;//(v.open + v.close) / 2;
+					p.avg = Math.round(p.total / p.count);
+
+					if ('M' + v.materialid in p.materialMap) {
+						p.materialMap['M' + v.materialid]++;
+					} else {
+						p.materialMap['M' + v.materialid] = 1;
+					}
+					p.avg = p.materialMap.length;
+
+					if ('V' + v.vendor in p.vendorMap) {
+						p.vendorMap['V' + v.vendor]++;
+					} else {
+						p.vendorMap['V' + v.vendor] = 1;
+					}
+					p.total = p.vendorMap.length;
+
+					return p;
+				}, function(p, v) {
+					--p.count;
+					p.total -= v.netprice;//(v.open + v.close) / 2;
+					p.avg = p.count ? Math.round(p.total / p.count) : 0;
+
+					if ('M' + v.materialid in p.materialMap) {
+						if (p.materialMap['M' + v.materialid] == 1)
+							delete p.materialMap['M' + v.materialid];
+						else
+							p.materialMap['M' + v.materialid]--;
+					}
+					p.avg = p.materialMap.length;
+
+					if ('V' + v.vendor in p.vendorMap) {
+						if (p.vendorMap['V' + v.vendor] == 1)
+							delete p.materialMap['V' + v.vendor];
+						else
+							p.vendorMap['V' + v.vendor]--;
+					}
+					p.total = p.vendorMap.length;
+
+					return p;
+				}, function() {
+					return {
+						count : 0,
+						total : 0,
+						avg : 0,
+						materialMap : [],
+						vendorMap : []
+					};
+				});
+
+		// summerize volume by quarter
+		var pieChartCompanyCodeDimension = ndx.dimension(function(d) {
+			return d.companycode;
+		});
+		var pieChartDivisionDimension = ndx.dimension(function(d) {
+			return d.division;
+		});
+		var pieChartPlantDimension = ndx.dimension(function(d) {
+			return d.plantgroup;
+		});
+		var pieChartMaterialTypeDimension = ndx.dimension(function(d) {
+			return d.material_type;
+		});
+		var pieChartMaterialGroupDimension = ndx.dimension(function(d) {
+			return d.materialgroup;
+		});
+		//var pieChartMaterialDimension = ndx.dimension(function(d) {
+		//	return d.material;
+		//});
+		var pieChartSalesDocTypeDimension = ndx.dimension(function(d) {
+			return d.salesdoctype;
+		});
+		var pieChartSalesOrgpDimension = ndx.dimension(function(d) {
+			return d.salesorg;
+		});
+		var pieChartSalesGroupDimension = ndx.dimension(function(d) {
+			return d.salesgroup;
+		});
+
+		var pieCompanyCode = pieChartCompanyCodeDimension.group().reduceSum(function(d) {
+			return d.so_count;
+		});
+		var pieDivision = pieChartDivisionDimension.group().reduceSum(
+				function(d) {
+					return d.so_count;
+				});
+		var piePlant = pieChartPlantDimension.group().reduceSum(
+				function(d) {
+					return d.so_count;
+				});
+		var pieMaterialType = pieChartMaterialTypeDimension.group()
+				.reduceSum(function(d) {
+					return d.so_count;
+				});
+		var pieMaterialGroup = pieChartMaterialGroupDimension.group().reduceSum(
+				function(d) {
+					return d.so_count;
+				});
+		//var pieMaterial = pieChartMaterialDimension.group()
+		//		.reduceSum(function(d) {
+		//			return d.so_count;
+		//		});
+		var pieSalesDocType = pieChartSalesDocTypeDimension.group()
+			.reduceSum(function(d) {
+				return d.so_count;
+			});
+		var pieSalesOrg = pieChartSalesOrgpDimension.group().reduceSum(
+				function(d) {
+					return d.so_count;
+				});
+		var pieSalesGroup = pieChartSalesGroupDimension.group()
+				.reduceSum(function(d) {
+					return d.so_count;
+				});
+
+		// counts per weekday
+		var horzBarDimension = ndx.dimension(function(d) {
+			return d.so_type;
+		});
+		var horzBarGrp = horzBarDimension.group();
+
+		var colorScale = d3.scale.ordinal().range([ '#000' ]);
+		pieChartCompanyCode.width(170).height(150).radius(60).dimension(pieChartCompanyCodeDimension).group(pieCompanyCode);
+		pieChartDivision.width(170).height(150).radius(60).innerRadius(30).dimension(pieChartDivisionDimension).group(pieDivision);
+		pieChartPlant.width(170).height(150).radius(60).colors(colorScale).dimension(pieChartPlantDimension).group(piePlant);
+		pieChartSalesOrg.width(170).height(150).radius(60).innerRadius(30).dimension(pieChartSalesOrgpDimension).group(pieSalesOrg);
+		pieChartMaterialType.width(170).height(150).radius(60).innerRadius(30).dimension(pieChartMaterialTypeDimension).group(pieMaterialType);
+		pieChartMaterialGroup.width(170).height(150).radius(60).dimension(pieChartMaterialGroupDimension).group(pieMaterialGroup);
+		//pieChartMaterial.width(250).height(200).radius(80).innerRadius(40).dimension(pieChartMaterialDimension).group(pieMaterial);
+		pieChartSalesDocType.width(170).height(150).radius(60).innerRadius(30).dimension(pieChartSalesDocTypeDimension).group(pieSalesDocType);
+		pieChartSalesGroup.width(170).height(150).radius(60).dimension(pieChartSalesGroupDimension).group(pieSalesGroup);
+
+		//#### Row Chart
+		horzBarChart.width(180).height(430).margins({
+			top : 20,
+			left : 10,
+			right : 10,
+			bottom : 20
+		}).group(horzBarGrp).dimension(horzBarDimension)
+		// assign colors to each value in the x scale domain
+		.ordinalColors(
+				[ '#3182bd', '#6baed6', '#9e5ae1', '#c64bef', '#da8aab' ])
+				.label(function(d) {
+
+					return d.key;//.split(".")[1];
+				})
+				// title sets the row text
+				.title(function(d) {
+					return d.key + ': ' + d.value;//d.value;
+				}).elasticX(true).xAxis().ticks(4);
+
+		timelineAreaChart.renderArea(true).width(900).height(100)
+				.transitionDuration(1000).margins({
+					top : 25,
+					right : 0,
+					bottom : 25,
+					left : 80
+				}).dimension(timelineDimension).mouseZoomable(true)
+				// Specify a range chart to link the brush extent of the range with the zoom focue of the current chart.
+				.rangeChart(timelineChart).x(
+						d3.time.scale()
+								.domain(
+										[ new Date(2011, 0, 1),
+												new Date(2015, 11, 31) ]))
+				.round(d3.time.month.round).xUnits(d3.time.months).elasticY(
+						true).renderHorizontalGridLines(true)
+				//  .legend(dc.legend().x(800).y(10).itemHeight(13).gap(5))
+				.brushOn(false)
+				// Add the base layer of the stack with group. The second parameter specifies a series name for use in the legend
+				// The `.valueAccessor` will be used for the base layer
+				.group(timelineAreaGroup, "Vendor Count").valueAccessor(
+						function(d) {
+							return d.value.total;
+						})
+				// stack additional layers with `.stack`. The first paramenter is a new group.
+				// The second parameter is the series name. The third is a value accessor.
+				.stack(timelineSecondGroup, "Material Count", function(d) {
+					return d.value;
+				})
+				// title can be called by any stack layer.
+				.title(function(d) {
+					var value = d.value.avg ? d.value.avg : d.value;
+					if (isNaN(value))
+						value = 0;
+					return dateFormat(d.key) + "\n" + numberFormat(value);
+				});
+
+		timelineChart.width(900).height(80).margins({
+			top : 40,
+			right : 0,
+			bottom : 20,
+			left : 80
+		}).dimension(timelineDimension).group(timelineGroup).centerBar(true)
+				.gap(1).x(
+						d3.time.scale()
+								.domain(
+										[ new Date(2011, 0, 1),
+												new Date(2015, 11, 31) ]))
+				.round(d3.time.month.round).alwaysUseRounding(true).xUnits(
+						d3.time.months);
+		dc.dataCount(".dc-data-count").dimension(ndx).group(all);
+
+		dc.dataTable(".dc-data-table").dimension(timelineDimension)
+		// data table does not use crossfilter group but rather a closure
+		// as a grouping function
+		.group(function(d) {
+
+			 var format = d3.format("02d");
+             return d.dd.getFullYear() + "/" + format((d.dd.getMonth() + 1));
+		}).size(50) // (optional) max number of records to be shown, :default = 25
+		// dynamic columns creation using an array of closures
+		.columns([ function(d) {
+			return d.date;
+		}, function(d) {
+			return numberFormat3(d.so_count);
+		}, function(d) {
+			return d.companycode;
+		}, function(d) {
+			return d.division;
+		}, function(d) {
+			return d.plantgroup;
+		}, function(d) {
+			return d.material_type;
+		}, function(d) {
+			return d.materialgroup;
+		}, function(d) {
+			return d.salesdoctype;
+		}, function(d) {
+			return d.salesorg;
+		}, function(d) {
+			return d.salesgroup;	
+		}, function(d) {
+			return numberFormat2(d.netvalue);
+		}, function(d) {
+			return d.so_type
+		}, function(d) {
+			return d.lastchangedon
+		}])
+		.sortBy(function(d) {
+			return d.lastchangedon;
+		})
+		.order(d3.ascending)
+		.renderlet(function(table) {
+			table.selectAll(".dc-table-group").classed("info", true);
+		});
+
+		dc.renderAll();
+	});
+
+	//#### Version
+	//Determine the current version of dc with `dc.version`
+	d3.selectAll("#version").text(dc.version);
+
+	var opts = {
+		lines : 15, // The number of lines to draw
+		length : 8, // The length of each line
+		width : 5, // The line thickness
+		radius : 12, // The radius of the inner circle
+		corners : 0.7, // Corner roundness (0..1)
+		rotate : 0, // The rotation offset 
+		direction : 1, // 1: clockwise, -1: counterclockwise
+		color : '#000', // #rgb or #rrggbb or array of colors
+		speed : 1, // Rounds per second
+		trail : 60, // Afterglow percentage
+		shadow : false, // Whether to render a shadow
+		hwaccel : false, // Whether to use hardware acceleration
+		className : 'spinner', // The CSS class to assign to the spinner
+		zIndex : 2e9, // The z-index (defaults to 2000000000)
+		top : '10', // Top position relative to parent in px
+		left : 'auto' // Left position relative to parent in px
+	};
+	var target = document.getElementById('loading');
+	var spinner = new Spinner(opts).spin(target);
+</script>

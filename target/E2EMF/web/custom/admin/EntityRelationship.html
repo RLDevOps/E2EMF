@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <title>Dynatree - Example</title>
+
+  <script src="../jquery/jquery.js" type="text/javascript"></script>
+  <script src="../jquery/jquery-ui.custom.js" type="text/javascript"></script>
+  <script src="../jquery/jquery.cookie.js" type="text/javascript"></script>
+
+  <link href="../dynatree/skin/ui.dynatree.css" rel="stylesheet" type="text/css">
+  <script src="../dynatree/jquery.dynatree.js" type="text/javascript"></script>
+<link href="../dynatree/skin-custom/custom.css" rel="stylesheet" type="text/css" >
+
+  <!-- (Irrelevant source removed.) -->
+
+<script type="text/javascript"><!--
+$(function(){
+  // --- Initialize first Dynatree -------------------------------------------
+  $("#tree").dynatree({
+    initAjax: {
+      url: "/SearchRest/ERServlet",
+      					data: {"key": 10, // Optional url arguments
+         						 "isFolder": true
+          					  }
+    },
+    onLazyRead: function(node){
+      // Mockup a slow reqeuest ...
+      node.appendAjax({
+        url: "/SearchRest/ERServlet",
+       			data: {"key": node.data.key, // Optional url arguments
+           				"subKey": node.data.subKey,
+					 "isFolder": node.data.isFolder
+				  }
+        //,debugLazyDelay: 750 // don't do thi in production code
+      });
+    },
+    dnd: {
+      preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
+      onDragStart: function(node) {
+        /** This function MUST be defined to enable dragging for the tree.
+         *  Return false to cancel dragging of node.
+         */
+        return true;
+      },
+      onDragEnter: function(node, sourceNode) {
+        /** sourceNode may be null for non-dynatree droppables.
+         *  Return false to disallow dropping on node. In this case
+         *  onDragOver and onDragLeave are not called.
+         *  Return 'over', 'before, or 'after' to force a hitMode.
+         *  Return ['before', 'after'] to restrict available hitModes.
+         *  Any other return value will calc the hitMode from the cursor position.
+         */
+        // Prevent dropping a parent below another parent (only sort
+        // nodes under the same parent)
+        if(node.parent !== sourceNode.parent){
+          return false;
+        }
+        // Don't allow dropping *over* a node (would create a child)
+        return ["before", "after"];
+      },
+      onDrop: function(node, sourceNode, hitMode, ui, draggable) {
+        /** This function MUST be defined to enable dropping of items on
+         *  the tree.
+         */
+        sourceNode.move(node, hitMode);
+      }
+    }
+  });
+});
+--></script>
+</head>
+
+<body class="example">
+<table width="100%">
+<tr>
+<td></td>
+<td align=center><h3>Material flow meta data structure</h3></td>
+<td><a href="../home.html">Back to home</a></td>
+</tr>
+</table>
+  
+  <p class="description">
+    This tree depicts the relationship and hierarchy of meta data structure. Entities are represented as folders, and Attributes are represented as leaf nodes.
+    This structure can also depict cyclic relationships. It can be used to plot material flow diagrams
+  </p>
+
+  <div id="tree"> </div>
+
+  <!-- (Irrelevant source removed.) -->
+</body>
+</html>
