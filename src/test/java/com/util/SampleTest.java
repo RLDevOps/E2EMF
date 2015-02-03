@@ -1,6 +1,5 @@
 package com.util;
 //test comment
-//test comment 2
 import org.junit.Assert;
 import org.junit.Test;
 
