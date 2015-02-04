@@ -16,9 +16,6 @@ import com.util.JSONUtil;
 public class MaterialFlow extends E2EMFConstants
 {
 
-public MaterialFlow(){
-	System.out.println("Testing");
-}	
 	private static Logger log = LogManager.getLogger(MaterialFlow.class);
 	private ArrayList<Link> links;
 	private int subContractingCount = 0;
@@ -29,7 +26,8 @@ public MaterialFlow(){
 	private int consigmentCount = 0;
 	private int stoCount = 0;
 	private int intercompanyDropShipCount = 0;
-	private int;
+	//Testing the Un-used Variable for Code Quality
+	private int testint;
 	
 	private String subContractingColor = null;
 	private String normalPurchasingColor = null;
@@ -47,6 +45,7 @@ public MaterialFlow(){
 		this.links = new ArrayList<Link>();
 		for(FlowData flowData : flowDataList)
 		{
+			String Something="TestString";
 			Link link = new Link();
 			Node startNode = new Node();
 			startNode.setCode(flowData.getFromCode());
